@@ -1,0 +1,84 @@
+﻿.background {
+    background-image: url('/Images/Home/Index/BG.png');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+.card {
+    border-radius: 15px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.admin-button {
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 20px;   
+}
+.login {
+    background-color: #03254C;
+    color:white;
+    border-radius:10px;
+}
+.capsule-btn {
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-right: auto;
+    max-width: 200px;
+}
+
+    .capsule-btn i {
+        margin-left:10px;
+        margin-right: 20px;
+        color: white;
+    }
+
+.welcome-text {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+    .welcome-text h3 {
+        font-weight: 900;
+    }
+
+.services-section {
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+}
+
+.divider {
+    border: 1px solid #000;
+    margin: 0;
+}
+
+.services-label {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+.small-img {
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    width: 80%; 
+    height: auto; 
+    opacity:50%;
+}
+.card-text {
+    font-size: small;
+}

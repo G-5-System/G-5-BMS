@@ -1,8 +1,44 @@
-﻿@{
+﻿@model List<G_5_BMS.Models.IndexModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/G_5_BMS.styles.css" asp-append-version="true" />
+<div class="background"></div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="admin-button">
+    <a class="btn btn-outline-primary login" asp-area="" asp-controller="Auth" asp-action="AdminAuth">Admin</a>
+</div>
+
+<div class="text-center mt-3 welcome-text">
+    <h6 class="display-6">WELCOME TO</h6>
+    <h3 class="display-3">BARANGAY MANAGEMENT SYSTEM</h3>
+</div>
+
+<div class="services-section">
+    <hr class="divider">
+    <span class="services-label">SERVICES</span>
+</div>
+
+<div class="row justify-content-center mt-5">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+            <div class="card h-100 d-flex flex-column">
+                <img src="@Model[i].ImageUrl" class="card-img-top small-img" alt="@Model[i].Title">
+                <div class="card-body d-flex flex-column flex-grow-1">
+                    <h5 class="card-title">@Model[i].Title</h5>
+                    <p class="card-text">@Model[i].Description</p>
+                    <div class="mt-auto">
+                        <a href="@Model[i].Link" class="btn btn-primary capsule-btn">
+                            <i class="fas fa-eye"></i> Proceed
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
