@@ -7,4 +7,9 @@
     <RootNamespace>G_5_BMS</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Admin\" />
+    <Folder Include="wwwroot\Images\Auth\" />
+  </ItemGroup>
+
 </Project>
