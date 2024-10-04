@@ -1,36 +1,44 @@
-﻿@model List<G_5_BMS.Models.IndexModel>
-<div class="container mt-4">
-    <h2>Announcement Page</h2>
-</div>
-<div id="carouselExample" class="carousel slide mt-4" data-bs-ride="carousel">
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" style="height: 400px;">
-            <div class="carousel-item active" style="height: 100%;">
-                <img src="~/Images/Home/Index/banner 1.jpg" class="d-block w-100" alt="Slide 1" style="height: 100%; object-fit: cover;">
-            </div>
-            <div class="carousel-item" style="height: 100%;">
-                <img src="~/Images/Home/Index/banner 2.jpg" class="d-block w-100" alt="Slide 2" style="height: 100%; object-fit: cover;">
-            </div>
-            <div class="carousel-item" style="height: 100%;">
-                <img src="~/Images/Home/Index/banner 3.png" class="d-block w-100" alt="Slide 3" style="height: 100%; object-fit: cover;">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+﻿@{
+    ViewData["Title"] = "Announcements";
+    ViewData["ShowSecondNavbar"] = true; 
+}
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+@model List<G_5_BMS.Models.Announcement>
+
+<link rel="stylesheet" href="~/css/Announcement.css" asp-append-version="true" />
+
+<div class="container">
+    <div class="announcement-card">
+        <div class="announcement-list">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+               <div class="individual-announcement" style="display: @(i < 3 ? "block" : "none")">
+                    <div class="announcement-item-card">
+                        <div class="announcement-header">
+                            <div class="announcement-title">
+                                <h4>@Model[i].Title</h4>
+                                <p>@Model[i].Description</p>
+                            </div>
+                            <div class="announcement-date-time">
+                                <p><strong>Date:</strong> @Model[i].EventDate.ToShortDateString()</p>
+                                <p><strong>Time:</strong> @Model[i].EventTime</p>
+                            </div>
+                        </div>
+                        <div class="announcement-location">
+                            <p><strong>Location:</strong> @Model[i].Location</p>
+                            <p><strong>RSVP:</strong> @Model[i].RsvpEmail</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        @if (Model.Count > 3)
+        {
+            <button id="showMoreBtn" onclick="showMore()">Show More</button>
+        }
+    </div>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/HomeLayout.js" asp-append-version="true"></script>

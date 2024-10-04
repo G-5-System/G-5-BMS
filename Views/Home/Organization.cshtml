@@ -1,9 +1,103 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model dynamic
+
 @{
+    ViewData["Title"] = "Organization Chart";
+    ViewData["ShowSecondNavbar"] = true;
 }
-<div class="container mt-4">
-    <h2>Organization Chart Page</h2>
-    <canvas id="myChart" width="400" height="200"></canvas>
+<link rel="stylesheet" href="~/css/Organization.css" asp-append-version="true" />
+
+<body>
+<div class="container text-center mt-5">
+        <h2>Baranggay Officials</h2>
+        <p>Year 2024</p>
+    <div class="row">
+        <div class="col-md-6">           
+            <div class="row">
+                <div class="col-12 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img src="@Model.OrgChart1[0].ImageUrl" class="card-img-top" alt="@Model.OrgChart1[0].Name" />
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.OrgChart1[0].Name</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@Model.OrgChart1[0].Position</h6>
+                            <p class="card-text">@Model.OrgChart1[0].Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @for (int i = 1; i <= 6; i++)
+                {
+                    <div class="col-12 col-md-4 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img src="@Model.OrgChart1[i].ImageUrl" class="card-img-top" alt="@Model.OrgChart1[i].Name" />
+                            <div class="card-body">
+                                <h5 class="card-title">@Model.OrgChart1[i].Name</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">@Model.OrgChart1[i].Position</h6>
+                                <p class="card-text">@Model.OrgChart1[i].Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="row">
+                <div class="col-12 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img src="@Model.OrgChart1[7].ImageUrl" class="card-img-top" alt="@Model.OrgChart1[7].Name" />
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.OrgChart1[7].Name</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@Model.OrgChart1[7].Position</h6>
+                            <p class="card-text">@Model.OrgChart1[7].Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-12 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img src="@Model.OrgChart2[0].ImageUrl" class="card-img-top" alt="@Model.OrgChart2[0].Name" />
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.OrgChart2[0].Name</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@Model.OrgChart2[0].Position</h6>
+                            <p class="card-text">@Model.OrgChart2[0].Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                @for (int i = 1; i <= 6; i++)
+                {
+                    <div class="col-12 col-md-4 mb-4 d-flex justify-content-center">
+                        <div class="card">
+                            <img src="@Model.OrgChart2[i].ImageUrl" class="card-img-top" alt="@Model.OrgChart2[i].Name" />
+                            <div class="card-body">
+                                <h5 class="card-title">@Model.OrgChart2[i].Name</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">@Model.OrgChart2[i].Position</h6>
+                                <p class="card-text">@Model.OrgChart2[i].Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="row">
+                <div class="col-12 mb-4 d-flex justify-content-center">
+                    <div class="card">
+                        <img src="@Model.OrgChart2[7].ImageUrl" class="card-img-top" alt="@Model.OrgChart2[7].Name" />
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.OrgChart2[7].Name</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@Model.OrgChart2[7].Position</h6>
+                            <p class="card-text">@Model.OrgChart2[7].Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+</body>

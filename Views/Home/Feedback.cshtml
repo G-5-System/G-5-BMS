@@ -1,9 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Feedback Inquiries";
+    ViewData["ShowSecondNavbar"] = true;
 }
-<div class="container mt-4">
-    <h2>Feedback Page</h2>
-    <canvas id="myChart" width="400" height="200"></canvas>
+<link rel="stylesheet" href="~/css/Feedback.css" asp-append-version="true" />
+
+<div class="feedback-card">
+    <form id="feedbackForm">
+        <div class="form-group">
+            <label for="name">We would like to hear what you think about our website.</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="rating">How do you rate our services:</label>
+            <div class="star-rating">
+                <input type="radio" id="star1" name="rating" value="5">
+                <label for="star1" class="star">★</label>
+                <input type="radio" id="star2" name="rating" value="4">
+                <label for="star2" class="star">★</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3" class="star">★</label>
+                <input type="radio" id="star4" name="rating" value="2">
+                <label for="star4" class="star">★</label>
+                <input type="radio" id="star5" name="rating" value="1">
+                <label for="star5" class="star">★</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Do you have any thoughts you would like to share?:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Write your feedback here..." required></textarea>
+        </div>
+        <div class="button-group">
+            <button type="submit" class="btn-send">Send</button>
+            <button type="button" class="btn-cancel" onclick="cancelFeedback()">Cancel</button>
+        </div>
+    </form>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/HomeLayout.js" asp-append-version="true"></script>

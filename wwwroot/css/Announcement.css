@@ -1,0 +1,67 @@
+﻿
+.announcement-card {
+    background-color: #D0EFFF;
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    position: relative;
+    width: 100%; 
+    max-width: 200vh;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.announcement-list {
+    color: #03254C;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.individual-announcement {
+    display: flex;
+    justify-content: center;
+}
+.announcement-item-card {
+    background-color: #9FD2FF;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative; 
+}
+
+.announcement-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.announcement-title {
+    flex: 1; 
+    text-align: left;
+}
+
+.announcement-date-time {
+    text-align: right; 
+}
+
+.announcement-location {
+    margin-top: 10px; 
+}
+
+#showMoreBtn {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    #showMoreBtn:hover {
+        background-color: #0056b3; 
+    }

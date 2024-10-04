@@ -1,0 +1,88 @@
+﻿
+
+.feedback-card {
+    background-color: #D0EFFF;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 100vh; 
+    margin: 20px auto;
+}
+
+    .feedback-card h3 {
+        text-align: center;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size:20px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
+    .star-rating input {
+        display: none;
+    }
+
+    .star-rating label {
+        font-size: 20px;
+        cursor: pointer;
+        color: #ccc; 
+    }
+
+    .star-rating input:checked ~ label {
+        color: #f39c12; 
+    }
+
+.button-group {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 10px; 
+}
+
+.btn-send,
+.btn-cancel {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-send {
+    width:100px;
+    background-color: #03254C; 
+    color: white;
+}
+
+    .btn-send:hover {
+        background-color: #0056b3; 
+    }
+
+.btn-cancel {
+    background-color: #ccc; 
+    color: black;
+}
+
+    .btn-cancel:hover {
+        background-color: #bbb; 
+    }
