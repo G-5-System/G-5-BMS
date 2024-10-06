@@ -1,0 +1,43 @@
+﻿
+
+.container {
+    margin-top: 40px;
+    background-color: #D0EFFF;
+    padding: 40px 30px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.announcement-container {
+    background-color: #9FD2FF;
+    text-align: center;
+    padding: 1px 20px;
+    border-radius: 15px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 30%;
+    min-width: 100px;
+    min-height: 20px;
+}
+
+.content {
+    background-color: #9FD2FF;
+    padding: 5px 25px;
+    position: relative;
+}
+
+.date-time {
+    float: right;
+    right: 10px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.icons {
+    padding: 10px 0px;
+    text-align: right;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
