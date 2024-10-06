@@ -1,11 +1,32 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
     ViewData["Title"] = "FAQs";
 }
+<link rel="stylesheet" href="~/css/Admin-faq.css" asp-append-version="true" />
+<div class="faq-outer-container">
+    <div class="info-card-header">FAQs</div>
 
-<div class="text-center">
-    <h1 class="display-4">FAQS</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="faq-form-container">
+        <div class="faq-add-item" id="faq-add-item">
+            <img src="add-icon.png" alt="Add" class="faq-icon faq-add-icon">
+            <span>Add Item</span>
+        </div>
+        <div class="faq-card">
+            <img src="delete-icon.png" alt="Delete" class="faq-icon faq-delete-icon">
+            <input type="text" placeholder="What is your question?" class="faq-input">
+            <img src="edit-icon.png" alt="Edit" class="faq-icon faq-edit-icon">
+        </div>
+        <div class="faq-card">
+            <input type="text" placeholder="This is the answer..." readonly class="faq-input readonly">
+        </div>
+        <div class="faq-card">
+            <img src="delete-icon.png" alt="Delete" class="faq-icon faq-delete-icon">
+            <input type="text" placeholder="What is another question?" class="faq-input">
+            <img src="edit-icon.png" alt="Edit" class="faq-icon faq-edit-icon">
+        </div>
+        <div class="faq-card">
+            <input type="text" placeholder="This is another answer..." readonly class="faq-input readonly">
+        </div>
+    </div>
 </div>
+<script src="~/js/Admin-faq.js"></script>

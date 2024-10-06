@@ -1,0 +1,110 @@
+﻿.info-card-header {
+    position: relative; 
+    top: -50px; 
+    text-align: center;
+    max-width: 280px;
+    border: 1px solid #ddd; 
+    border-radius: 12px; 
+    font-size: 1.9em; 
+    font-weight: bold;
+    margin: 0 auto; 
+    color: black; 
+    background-color: #9FD2FF; 
+    padding: 5px; 
+}
+
+.faq-outer-container {
+    margin-top: 40px;
+    margin-left: 150px;
+    background-color: #d0efff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 900px;
+}
+
+.faq-form-header {
+    background-color: #b6dfff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.6em;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.faq-form-container {
+    background-color: #b6dfff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.faq-add-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+    .faq-add-item .faq-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+
+    .faq-add-item span {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+.faq-card {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .faq-card .faq-input {
+        flex: 1;
+        border: none;
+        background: none;
+        outline: none;
+        padding-left: 10px;
+        font-size: 1.2em;
+        color: #555;
+        text-align: left; 
+    }
+
+        .faq-card .faq-input.readonly {
+            background: #fff;
+            padding: 8px 10px;
+            border-radius: 5px;
+            color: #555;
+            cursor: default;
+        }
+
+.faq-icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.faq-delete-icon {
+    margin-right: 15px;
+}
+
+.faq-edit-icon {
+    margin-left: 15px;
+}
+
+@media (max-width: 920px) {
+    .faq-outer-container {
+        width: 100%;
+    }
+}

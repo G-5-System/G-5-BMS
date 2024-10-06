@@ -27,11 +27,11 @@ body {
 
 .sidebar {
     width: 250px;
-    height: auto;
+    height: 100vh;
     background-color: #f8f9fa;
     padding: 15px;
     transition: all 0.3s;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .sidebar-contents {
@@ -89,11 +89,13 @@ body {
         margin-right: 10px;
     }
 
+
 .footer {
-    position: fixed;
-    bottom:20px;
+    bottom: 0;
     left: 0;
     right: 0;
     background-color: white;
     border-top: 1px solid #dee2e6;
+    z-index: 1000;
+    padding: 25px;
 }

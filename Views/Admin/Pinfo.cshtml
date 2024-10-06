@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Admin Info";
+}
+<link rel="stylesheet" href="~/css/Pinfo.css" asp-append-version="true" />
+
+<div class="admin-info-card">
+    <div class="admin-info-card-header">
+        <h2>Personal Info</h2>
+    </div>
+    <div class="main-card">
+        <div class="upload-card">
+            <div class="upload-section">
+                <div class="photo-box" id="photo-preview">Photo</div>
+                <input type="file" id="file-input" accept="image/*">
+            </div>
+        </div>
+
+        <div class="name-card">
+            <div class="input-container">
+                <input type="text" id="name-input" placeholder="Enter your name">
+                <button class="edit-button">Edit</button>
+            </div>
+        </div>
+
+        <div class="email-card">
+            <div class="input-container">
+                <input type="email" id="email-input" placeholder="Enter your email address">
+                <button class="edit-button">Edit</button>
+            </div>
+        </div>
+
+        <div class="password-card">
+            <div class="input-container">
+                <input type="password" id="password-input" placeholder="Enter your password">
+                <button class="edit-button">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/Pinfo.js"></script>

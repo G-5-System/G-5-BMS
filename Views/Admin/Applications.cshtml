@@ -1,11 +1,111 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     ViewData["Title"] = "Applications";
 }
+<link rel="stylesheet" href="~/css/Application.css" asp-append-version="true" />
 
 <div class="container mt-4">
-    <h2>Applications</h2>
-    <canvas id="myChart" width="400" height="200"></canvas>
+    <div class="card">
+        <div class="info-card-header">
+            <h2>List of Application</h2>
+        </div>
+        <div class="card-body">
+            <div class="inner-card">
+                <div class="table-like-header">Barangay Clearance</div>
+                <div class="inner-card-body">
+                    @foreach (var application in Model)
+                    {
+                        <div class="table-like">
+                            <div class="table-like-row">
+                                <div class="green-circle"></div>
+                                <div class="table-like-cell">Name:</div>
+                                <div class="table-like-cell">@application.Name</div>
+                                <div class="table-like-cell">Contact Information:</div>
+                                <div class="table-like-cell">@application.ContactInformation</div>
+                                <div class="table-like-cell">Email Address:</div>
+                                <div class="table-like-cell">@application.EmailAddress</div>
+                                <div class="table-like-cell">
+                                    <button class="btn btn-primary">Email</button>
+                                    <button class="btn btn-danger">X</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="inner-card">
+                <div class="table-like-header">Barangay Permit</div>
+                <div class="inner-card-body">
+                    @foreach (var application in Model)
+                    {
+                        <div class="table-like">
+                            <div class="table-like-row">
+                                <div class="green-circle"></div>
+                                <div class="table-like-cell">Name:</div>
+                                <div class="table-like-cell">@application.Name</div>
+                                <div class="table-like-cell">Contact Information:</div>
+                                <div class="table-like-cell">@application.ContactInformation</div>
+                                <div class="table-like-cell">Email Address:</div>
+                                <div class="table-like-cell">@application.EmailAddress</div>
+                                <div class="table-like-cell">
+                                    <button class="btn btn-primary">Email</button>
+                                    <button class="btn btn-danger">X</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="inner-card">
+                <div class="table-like-header">Barangay ID</div>
+                <div class="inner-card-body">
+                    @foreach (var application in Model)
+                    {
+                        <div class="table-like">
+                            <div class="table-like-row">
+                                <div class="green-circle"></div>
+                                <div class="table-like-cell">Name:</div>
+                                <div class="table-like-cell">@application.Name</div>
+                                <div class="table-like-cell">Contact Information:</div>
+                                <div class="table-like-cell">@application.ContactInformation</div>
+                                <div class="table-like-cell">Email Address:</div>
+                                <div class="table-like-cell">@application.EmailAddress</div>
+                                <div class="table-like-cell">
+                                    <button class="btn btn-primary">Email</button>
+                                    <button class="btn btn-danger">X</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="inner-card">
+                <div class="table-like-header">Complain</div>
+                <div class="inner-card-body">
+                    @foreach (var application in Model)
+                    {
+                        <div class="table-like">
+                            <div class="table-like-row">
+                                <div class="green-circle"></div>
+                                <div class="table-like-cell">Name:</div>
+                                <div class="table-like-cell">@application.Name</div>
+                                <div class="table-like-cell">Contact Information:</div>
+                                <div class="table-like-cell">@application.ContactInformation</div>
+                                <div class="table-like-cell">Email Address:</div>
+                                <div class="table-like-cell">@application.EmailAddress</div>
+                                <div class="table-like-cell">
+                                    <button class="btn btn-primary">Email</button>
+                                    <button class="btn btn-danger">X</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

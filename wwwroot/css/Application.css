@@ -1,0 +1,70 @@
+﻿.card {
+    margin-top:50px;
+    background-color: #D0EFFF;
+    padding:20px;
+    border-radius: 20px;
+}
+.inner-card {
+    background-color: #9FD2FF !important;
+    border-radius:15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.table-like-header {
+    padding: 8px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.inner-card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-like {
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.table-like-row {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    justify-content: space-between; /* Align items horizontally */
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
+}
+
+.green-circle {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0; /* Ensure the circle doesn't shrink */
+}
+
+.table-like-cell {
+    flex: 0 0 auto; /* Don't allow cells to grow, fixed size */
+    padding: 0 8px;
+}
+
+.table-like-data {
+    flex: 1;
+    text-align: center; 
+}
+.info-card-header {
+    position: relative; 
+    top: -40px;
+    text-align: center;
+    max-width: 350px; 
+    border: 1px solid #ddd;
+    border-radius: 12px; 
+    font-size: 1.3em; 
+    font-weight: bold;
+    margin: 0 auto; 
+    color: black; 
+    background-color: #9FD2FF; 
+    padding: 10px; 
+}

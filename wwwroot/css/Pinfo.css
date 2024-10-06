@@ -1,0 +1,148 @@
+﻿.body {
+    margin-bottom: 0;
+}
+.admin-info-card {
+    margin-top: 40px; 
+    margin-left: 150px;
+    justify-items: center;
+    max-width: 70%; 
+    border-radius: 18px;
+    padding: 15px; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #D0EFFF; 
+}
+
+.admin-info-card-header {
+    position: relative; 
+    top: -30px;
+    text-align: center;
+    max-width: 280px; 
+    border: 1px solid #ddd; 
+    border-radius: 18px; 
+    font-size: 1.9em; 
+    font-weight: bold;
+    margin: 0 auto; 
+    color: black; 
+    background-color: #9FD2FF; 
+    padding: 5px; 
+}
+
+.main-card {
+    max-width: 800px; 
+    margin: 10px auto; 
+    padding: 15px; 
+    border: 1px solid #ddd;
+    border-radius: 15px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #9FD2FF; 
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.photo-box {
+    width: 150px; 
+    height: 150px; 
+    background-color: #686868;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-image 0.3s ease;
+}
+
+input[type="file"] {
+    margin-top: 5px;
+}
+
+.upload-card {
+    border-radius: 5px;
+    padding: 10px; 
+    margin: 5px 0;
+    background-color: transparent;
+    border: none;
+}
+
+.name-card,
+.email-card,
+.password-card {
+    background-color: #D9D9D9;
+    width: 80%; 
+    max-width: 650px; 
+    border-radius: 5px;
+    padding: 10px; 
+    margin: 10px auto; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.name-card-header,
+.email-card-header,
+.password-card-header {
+    font-weight: bold;
+    margin-bottom: 8px; 
+}
+
+.upload-section {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.photo-box {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #ccc;
+    margin: 0 auto 5px; 
+    line-height: 120px;
+    color: #999;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.admin-info-card input[type="text"],
+.admin-info-card input[type="email"],
+.admin-info-card input[type="password"] {
+    width: 75%; 
+    padding: 8px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+}
+
+    .admin-info-card input[type="text"]:focus,
+    .admin-info-card input[type="email"]:focus,
+    .admin-info-card input[type="password"]:focus {
+    }
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 8px; 
+}
+
+.edit-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px; 
+    margin-left: 8px; 
+    cursor: pointer;
+}
+
+    .edit-button:hover {
+        background-color: #0056b3;
+    }
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}

@@ -1,11 +1,43 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<G_5_BMS.Models.Officials>
+
 @{
     ViewData["Title"] = "Edit Officials";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Organization Chart Contents</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<link rel="stylesheet" href="~/css/Officials.css" />
+<script src="~/js/Officials.js" defer></script>
+
+<div class="container-org mt-4 ">
+    <div class="org-header mb-4">
+        <h2>Edit Barangay Officials</h2>
+        <div class="custom-dropdown">
+            <button class="btn btn-secondary" id="dropdownButton">
+                Select Council
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                <a class="dropdown-item" href="#" data-council="barangay">BRGY COUNCIL</a>
+                <a class="dropdown-item" href="#" data-council="youth">YOUTH COUNCIL</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="card">
+        <div class="card-body">
+            <div class="inner-cards-container" id="officialsContainer">
+                <!-- Inner Card Rows -->
+                @foreach (var official in Model)
+                {
+                    <div class="inner-card">
+                        <div class="inner-card-row">
+                            <button class="btn-data btn-danger btn-sm">X</button>
+                            <div class="inner-card-title">@official.Title</div>
+                            <button class="btn-data btn-primary btn-sm">Edit</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    </div>

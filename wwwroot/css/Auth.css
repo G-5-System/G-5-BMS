@@ -1,0 +1,84 @@
+﻿
+.container-1 {
+    max-width: 120vh;
+    background-color: #D0EFFF;
+    box-shadow: 0 4px 3px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 60px 30px;
+    border-radius: 15px;
+    position: relative;
+    margin: auto; 
+}
+
+.container-2 {
+    background-color: #FFFF;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px 20px;
+    box-shadow: inherit;
+    border-radius: inherit;
+    position: relative;
+    height: 600px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 23px 65px;
+    margin-bottom: 60px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 1px 0px rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
+    display: inline-block;
+}
+
+label {
+    color: #03254C;
+    margin-left: 10px;
+}
+
+h1, .btn-container {
+    color: #03254C;
+    text-align: center;
+}
+
+.btn {
+    background-color: #D0EFFF;
+    border: none;
+    color: #03254C;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 3px 1px 0px rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.icon {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-140%);
+    z-index: 1;
+    color: #03254C;
+    pointer-events: none;
+    font-size: 22px;
+}
+
+.username-container, .password-container {
+    position: relative;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-170%);
+    z-index: 1;
+    cursor: pointer;
+    color: #03254C;
+}
