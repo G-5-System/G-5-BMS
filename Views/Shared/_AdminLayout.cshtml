@@ -24,6 +24,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                
             </div>
         </nav>
     </header>
@@ -31,6 +32,11 @@
     <div class="d-flex">
         <div class="sidebar" id="sidebar">
             <div class="sidebar-contents">
+                <div class="sidebar-header">
+                    <div class="circle"></div>
+                    <span class="sidebar-name">@ViewBag.Name</span>
+                </div>
+                <hr class="divider" />
                 <ul class="list-unstyled">
                     <li>
                         <a asp-controller="Admin" asp-action="Dashboard">
@@ -50,7 +56,7 @@
                             Announcements
                         </a>
                     </li>
-                     <li>
+                    <li>
                         <a asp-controller="Admin" asp-action="FAQs">
                             <i class="bi bi-chat-dots"></i>
                             Feedback Inquiries
@@ -64,11 +70,17 @@
                     </li>
                     <li>
                         <a asp-controller="Admin" asp-action="Pinfo" title="Personal Info">
-                            <i class="bi bi-person"></i> 
+                            <i class="bi bi-person"></i>
                             Personal Information
                         </a>
                     </li>
                 </ul>
+                <form asp-controller="Admin" asp-action="Logout" method="post" id="LogoutForm" class="logout-form">
+                    <a href="#" onclick="document.getElementById('LogoutForm').submit();" class="logout-link">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Logout
+                    </a>
+                </form>
             </div>
         </div>
         <div class="container-fluid">
@@ -76,13 +88,25 @@
                 @RenderBody()
             </main>
         </div>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="f-container">
-            &copy; 2024 - G_5_BMS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+      </div>
+
+
+    <footer class="footer border-top text-muted">
+        <div class="container-fluid d-flex justify-content-between align-items-center py-3">
+            <div class="footer-left">
+                &copy; 2024 - G_5_BMS
+            </div>
+            <div class="footer-right">
+                <a asp-area="" asp-controller="Home" asp-action="Privacy" class="footer-link">Privacy</a>
+                <span class="mx-2">|</span>
+                <a asp-area="" asp-controller="Home" asp-action="Terms" class="footer-link">Terms of Service</a>
+                <span class="mx-2">|</span>
+                <a asp-area="" asp-controller="Home" asp-action="Contact" class="footer-link">Contact Us</a>
+            </div>
         </div>
     </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

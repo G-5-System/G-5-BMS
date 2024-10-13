@@ -1,15 +1,15 @@
-﻿@model G_5_BMS.Models.ID
+﻿@model G_5_BMS.Models.Certificate
 @{
-    ViewData["Title"] = "Identification Card";
+    ViewData["Title"] = "Certificate";
     ViewData["ShowSecondNavbar"] = true;
 }
-<link rel="stylesheet" href="~/css/ID.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Certificate.css" asp-append-version="true" />
 
 <div class="container mt-3">
     <div class="custom-card">
         <div class="services-section">
             <hr class="divider">
-            <span class="services-label">User Information</span>
+            <span class="services-label">Applicant</span>
         </div>
         <div class="card-body">
             @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
@@ -28,7 +28,6 @@
                         @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
                     </div>
                 </div>
-
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Suffix)
@@ -37,25 +36,6 @@
                     <div class="col">
                         @Html.LabelFor(m => m.Gender)
                         @Html.DropDownListFor(m => m.Gender, new SelectList(new List<string> { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
-                    </div>
-                    <div class="col">
-                        @Html.LabelFor(m => m.CivilStatus)
-                        @Html.DropDownListFor(m => m.CivilStatus, new SelectList(new List<string> { "Single", "Married", "Divorced", "Widowed" }), "Select Civil Status", new { @class = "form-control" })
-                    </div>
-                    <div class="col">
-                        @Html.LabelFor(m => m.Citizenship)
-                        @Html.DropDownListFor(m => m.Citizenship, new SelectList(new List<string> { "Filipino", "American", "Other" }), "Select Citizenship", new { @class = "form-control" })
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col">
-                        @Html.LabelFor(m => m.Birthday)
-                        @Html.TextBoxFor(m => m.Birthday, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
-                    </div>
-                    <div class="col">
-                        @Html.LabelFor(m => m.Age)
-                        @Html.TextBoxFor(m => m.Age, new { @class = "form-control", type = "number", @min = "0" })
                     </div>
                 </div>
             }
@@ -74,22 +54,6 @@
                         @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
                     </div>
                 </div>
-
-                <div class="row mb-3">
-                    <div class="col">
-                        @Html.LabelFor(m => m.Province)
-                        @Html.TextBoxFor(m => m.Province, new { @class = "form-control" })
-                    </div>
-                    <div class="col">
-                        @Html.LabelFor(m => m.Municipality)
-                        @Html.TextBoxFor(m => m.Municipality, new { @class = "form-control" })
-                    </div>
-                    <div class="col">
-                        @Html.LabelFor(m => m.Barangay)
-                        @Html.TextBoxFor(m => m.Barangay, new { @class = "form-control" })
-                    </div>
-                </div>
-
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.ContactNumber)
@@ -100,15 +64,32 @@
                         @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
                     </div>
                 </div>
+            }
+        </div>
+        <div class="services-section">
+            <hr class="divider">
+            <span class="services-label">Other Information</span>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
+            {
+                <div class="row mb-3">
+                    <div class="col">
+                        @Html.LabelFor(m => m.Year)
+                        @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.Purpose)
+                        @Html.TextBoxFor(m => m.Purpose, new { @class = "form-control" })
+                    </div>
+                </div>
 
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+
             }
         </div>
     </div>
 </div>
-</div>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/Clearance.js" asp-append-version="true"></script>

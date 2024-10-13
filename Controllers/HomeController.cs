@@ -31,10 +31,10 @@ namespace G_5_BMS.Controllers
         new IndexModel
         {
             Id = 2,
-            Title = "Barangay Permit",
+            Title = "Barangay Certificate",
             Description = "Request for a permit",
             ImageUrl = "/Images/Home/Index/papers.png",
-            Link = Url.Action("Permit", "Home")
+            Link = Url.Action("Certificate", "Home")
         },
         new IndexModel
         {
@@ -226,7 +226,7 @@ namespace G_5_BMS.Controllers
 
             return View(model);
         }
-        public IActionResult Permit()
+        public IActionResult Certificate()
         {
             return View();
         }

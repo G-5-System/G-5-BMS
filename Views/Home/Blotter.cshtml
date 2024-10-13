@@ -1,9 +1,81 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model G_5_BMS.Models.Complain
 @{
+    ViewData["Title"] = "Complain";
+    ViewData["ShowSecondNavbar"] = true;
 }
-<div class="container mt-4">
-    <h2>Blotter Page</h2>
-    <canvas id="myChart" width="400" height="200"></canvas>
+<link rel="stylesheet" href="~/css/Complain.css" asp-append-version="true" />
+
+<div class="container mt-3">
+    <div class="custom-card">
+        <div class="services-section">
+            <hr class="divider">
+            <span class="services-label">Complainant</span>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
+            {
+                <div class="row mb-3">
+                    <div class="col">
+                        @Html.LabelFor(m => m.FullName)
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.ContactNumber)
+                        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        @Html.LabelFor(m => m.Address)
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.EmailAddress)
+                        @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
+                    </div>
+                </div>    
+            }
+        </div>
+
+        <div class="services-section">
+            <hr class="divider">
+            <span class="services-label">Accused</span>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
+            {
+                <div class="row mb-3">
+                    <div class="col">
+                        @Html.LabelFor(m => m.FullName)
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                    </div>
+                    <div class="col">
+                        @Html.LabelFor(m => m.Address)
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                    </div>
+                    
+                </div>
+            }
+        </div>
+        <div class="services-section">
+                    <hr class="divider">
+                    <span class="services-label">Complain</span>
+                </div>
+
+                <div class="card-body">
+            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
+            {
+                    <div class="row mb-3">
+                        <div class="col">
+                            @Html.Label("Description")
+                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5", style = "resize: none;" }) <!-- Fixed style attribute -->
+                        </div>
+                    </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                
+        }</div>
+    </div>
 </div>
+

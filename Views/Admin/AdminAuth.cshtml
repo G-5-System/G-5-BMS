@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "_HomeLayout";
+}
+@model G_5_BMS.Views.Admin.LoginViewModel
+@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<script src="https://kit.fontawesome.com/852b931f78.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="~/css/Auth.css?v=1.0" />
+
+<div class="container-1 mt-4">
+    <div class="container-2">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h1 class="admin-title">
+                <i class="fa-solid fa-user-shield"></i> 
+                Admin               
+            </h1>
+            <p class="center-text">Enter your Login credentials.</p>
+            <div class="container-form">
+                <div class="username-container">
+                    <label asp-for="UserNameOrEmail" class="control-label" for="username">Username</label>
+                    <input asp-for="UserNameOrEmail" class="form-control" id="username" placeholder="Enter Username" required />
+                    <span asp-validation-for="UserNameOrEmail" class="text-danger"></span>
+                    <i class="fa-solid fa-envelope icon"></i>
+                </div>
+                <div class="password-container">
+                    <label asp-for="Password" class="control-label">Password</label>
+                    <input asp-for="Password" class="form-control" id="password" placeholder="Enter Password" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <i class="fa-solid fa-lock icon"></i>
+                    <i class="fa-solid fa-eye-slash eye-icon"></i>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="btn" type="submit" value="Login">LOG IN</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/js/Auth.js" defer></script>

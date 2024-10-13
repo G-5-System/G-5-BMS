@@ -18,24 +18,29 @@ html {
 }
 
 body {
-    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
 }
-
 .d-flex {
     display: flex;
+    flex: 1; /* Ensures the container expands to fill the remaining height */
+    flex-direction: row; /* Ensures the sidebar and content are side by side */
 }
 
 .sidebar {
     width: 250px;
-    height: 100vh;
-    background-color: #f8f9fa;
+    background-color: #1167B1;
     padding: 15px;
     transition: all 0.3s;
     flex-shrink: 0;
+    height: 100vh; /* Makes the sidebar full height */
+    position: sticky; /* Keeps it in place when scrolling */
+    top: 0; /* Ensures the sticky positioning starts from the top */
 }
 
 .sidebar-contents {
-    display: block; 
+    display: block;
 }
 
 .sidebar ul {
@@ -49,22 +54,33 @@ body {
 
         .sidebar ul li a {
             text-decoration: none;
-            color: #007bff;
+            color: white; /* White text color on hover or active */
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-            .sidebar ul li a:hover {
-                text-decoration: underline;
+            .sidebar ul li a:hover,
+            .sidebar ul li a.active {
+                background-color: #81AED6; /* Dark blue background on hover or active */
+
+            }
+
+            .sidebar ul li a i {
+                font-size: 20px;
+                margin-right: 10px;
             }
 
 #toggleSidebar {
     margin-bottom: 0px;
-    padding:5px;
+    padding: 5px;
 }
 
 
 .navbar {
     background-color: #03254C;
-
 }
 
 .navbar-brand {
@@ -75,10 +91,28 @@ body {
 }
 
 .btn-primary {
-    padding: 2px; 
+    padding: 2px;
     border: none;
 }
+.circle {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%; /* Makes it circular */
+    background-color: #007bff; /* Circle color */
+    margin-right: 10px; /* Space between circle and name */
+}
 
+.sidebar-name {
+    font-size: 1.2rem; /* Adjust font size as needed */
+    color: white; /* Name color */
+    font-weight: bold; /* Make the name bold */
+}
+
+.divider {
+    border: 0; /* Removes default border */
+    border-top: 1px solid #dee2e6; /* Adds a top border for the divider */
+    margin: 10px 0; /* Adds space above and below the divider */
+}
 .sidebar-contents a {
     display: flex;
     align-items: center;
@@ -89,13 +123,63 @@ body {
         margin-right: 10px;
     }
 
+.logout-form {
+    margin-top: auto;
+    margin-bottom: 0; /* Moves the logout button to the bottom */
+    padding-top: 200px; /* Adds some space above the logout button */
+}
 
+.logout-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: indianred;
+    padding: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+    .logout-link:hover {
+        background-color: darkred; /* Hover background color */
+        color: white; /* Hover text color */
+        border-radius: 5px;
+    }
+
+    .logout-link i {
+        font-size: 20px;
+        margin-right: 10px;
+
+    }
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adds space below the header */
+}
+.container {
+    flex: 1; /* Allow the container to grow and fill available space */
+}
 .footer {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    border-top: 1px solid #dee2e6;
-    z-index: 1000;
-    padding: 25px;
+    background-color: #f8f9fa; /* Light background color */
+    padding: 10px; /* Add padding for space */
+}
+
+.footer-left {
+    font-size: 14px; /* Adjust font size for the left section */
+}
+
+.footer-right {
+    font-size: 14px; /* Adjust font size for the right section */
+}
+
+.footer-link {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+    .footer-link:hover {
+        text-decoration: underline; /* Add underline on hover */
+    }
+
+.border-top {
+    border-top: 1px solid #dee2e6; /* Top border color */
 }

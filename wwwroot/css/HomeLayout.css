@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+}
+
 .header-nav {
     
     background-color: #03254C;
@@ -18,16 +24,35 @@
         font-weight: 600;
         color: white;
     }
-
-.footer {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: white;
-    border-top: 1px solid #dee2e6; 
-    z-index: 1000; 
-    padding: 25px;
+.container {
+    flex: 1; /* Allow the container to grow and fill available space */
 }
+.footer {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 10px; /* Add padding for space */
+}
+
+.footer-left {
+    font-size: 14px; /* Adjust font size for the left section */
+}
+
+.footer-right {
+    font-size: 14px; /* Adjust font size for the right section */
+}
+
+.footer-link {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+    .footer-link:hover {
+        text-decoration: underline; /* Add underline on hover */
+    }
+
+.border-top {
+    border-top: 1px solid #dee2e6; /* Top border color */
+}
+
 
 .title {
     font-size: 3vh;

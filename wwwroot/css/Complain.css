@@ -28,11 +28,12 @@
     .btn-primary:hover {
         background-color: #0056b3; /* Button hover color */
     }
+
 .services-section {
     text-align: center;
     position: relative;
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .divider {
@@ -49,5 +50,5 @@
     font-family: 'Inter', sans-serif;
     font-weight: bold;
     color: black;
-    background-color:white;
+    background-color: white;
 }

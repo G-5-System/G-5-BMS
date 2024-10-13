@@ -1,7 +1,6 @@
-﻿
-namespace G_5_BMS.Models
+﻿namespace G_5_BMS.Models
 {
-    public class Clearance
+    public class Certificate
     {
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
@@ -12,8 +11,8 @@ namespace G_5_BMS.Models
         public string ContactNumber { get; set; }
         public string EmailAddress { get; set; }
         public string BusinessName { get; set; }
-        public string BNature { get; set; }
-        public string Ownership { get; set; }
+        public string Year { get; set; }
+        public string Purpose { get; set; }
 
     }
 }
