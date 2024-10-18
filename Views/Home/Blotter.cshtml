@@ -4,78 +4,85 @@
     ViewData["ShowSecondNavbar"] = true;
 }
 <link rel="stylesheet" href="~/css/Complain.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/FModal.css" asp-append-version="true" />
 
 <div class="container mt-3">
     <div class="custom-card">
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">Complainant</span>
-        </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
+        @using (Html.BeginForm("Blotter", "Home", FormMethod.Post, new { id = "Form" })) // Added id here
+        {
+            <div class="services-section">
+                <hr class="divider">
+                <span class="services-label">Complainant</span>
+            </div>
+            <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.FullName)
-                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", type = "text" })
+                        @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.ContactNumber)
-                        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", type = "tel" })
+                        @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Address)
-                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control", type = "text" })
+                        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.EmailAddress)
                         @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
+                        @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "text-danger" })
                     </div>
-                </div>    
-            }
-        </div>
+                </div>
+            </div>
 
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">Accused</span>
-        </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
+            <div class="services-section">
+                <hr class="divider">
+                <span class="services-label">Accused</span>
+            </div>
+            <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
-                        @Html.LabelFor(m => m.FullName)
-                        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                        @Html.Label("Accused Full Name") // Updated for clarity
+                        @Html.TextBox("AccusedFullName", null, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
-                        @Html.LabelFor(m => m.Address)
-                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                        @Html.Label("Accused Address") // Updated for clarity
+                        @Html.TextBox("AccusedAddress", null, new { @class = "form-control", type = "text" })
                     </div>
-                    
                 </div>
-            }
-        </div>
-        <div class="services-section">
-                    <hr class="divider">
-                    <span class="services-label">Complain</span>
-                </div>
+            </div>
 
-                <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
-                    <div class="row mb-3">
-                        <div class="col">
-                            @Html.Label("Description")
-                            @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5", style = "resize: none;" }) <!-- Fixed style attribute -->
-                        </div>
+            <div class="services-section">
+                <hr class="divider">
+                <span class="services-label">Complain Details</span>
+            </div>
+
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col">
+                        @Html.Label("Description")
+                        @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5", style = "resize: none;" })
+                        @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
                     </div>
+                </div>
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-                
-        }</div>
+            </div>
+        }
     </div>
 </div>
 
+<div id="submissionModal" class="custom-modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <p id="modalMessage"></p>
+    </div>
+</div>
+<script src="~/js/FormValidation.js" defer></script>

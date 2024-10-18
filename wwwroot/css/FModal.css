@@ -1,0 +1,101 @@
+﻿.custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Dark background with reduced opacity */
+    backdrop-filter: blur(2px); /* Reduced blur effect */
+    transition: opacity 0.3s ease; /* Smooth transition for appearing/disappearing */
+}
+
+.modal-content {
+    background-color: #ffffff; /* White background for the modal content */
+    margin: 10% auto; /* Centered with less top margin */
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    width: 90%; /* Full width for small screens */
+    max-width: 600px; /* Maximum width for larger screens */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 30px; /* Slightly larger close button */
+    font-weight: bold;
+    transition: color 0.2s; /* Smooth color transition on hover */
+}
+
+    .close:hover,
+    .close:focus {
+        color: #d9534f; /* Change close button color on hover */
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+.modal-message {
+    margin-top: 15px; /* Space between title and message */
+    font-size: 16px; /* Increased font size for readability */
+    color: #333; /* Dark color for better contrast */
+}
+/* Confirmation Modal Styles */
+.confirmation-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top of the custom modal */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
+    backdrop-filter: blur(4px); /* Slight blur effect for background */
+}
+
+.confirmation-content {
+    background-color: #ffffff; /* White background */
+    margin: 15% auto; /* Centered with margin */
+    padding: 30px; /* Padding for content */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    width: 80%; /* Width for smaller screens */
+    max-width: 500px; /* Maximum width for larger screens */
+    text-align: center; /* Center text */
+}
+
+.confirmation-message {
+    font-size: 18px; /* Font size for the message */
+    color: #333; /* Dark color for contrast */
+    margin-bottom: 20px; /* Space below message */
+}
+
+.confirmation-buttons {
+    display: flex; /* Flexbox for button alignment */
+    justify-content: space-between; /* Space between buttons */
+}
+
+.confirmation-button {
+    background-color: #007bff; /* Primary button color */
+    color: #ffffff; /* White text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+    .confirmation-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+.confirmation-cancel-button {
+    background-color: #dc3545; /* Danger button color */
+}
+
+    .confirmation-cancel-button:hover {
+        background-color: #c82333; /* Darker red on hover */
+    }

@@ -1,5 +1,6 @@
 using G_5_BMS.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
@@ -10,10 +11,13 @@ namespace G_5_BMS.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly AppDbContext _context; // Add this line
 
-        public HomeController(ILogger<HomeController> logger)
+        // Updated constructor to accept AppDbContext
+        public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
+            _context = context; // Assign the context to a private field
         }
 
         public IActionResult Index()
@@ -69,10 +73,27 @@ namespace G_5_BMS.Controllers
             return View(announcements);
         }
 
+        [HttpGet]
         public IActionResult Blotter()
         {
-            return View();
+            return View(new Complain());
         }
+
+        [HttpPost]
+        public IActionResult Blotter(Complain model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Add the Clearance model to the database
+                _context.Complains.Add(model);
+                _context.SaveChanges(); // Save changes to the database
+
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+        }
+
 
 
         [HttpGet]
@@ -85,16 +106,37 @@ namespace G_5_BMS.Controllers
         public IActionResult Clearance(Clearance model)
         {
             if (ModelState.IsValid)
-            {               
-                return Json(new { success = true }); 
-            }          
+            {
+                // Add the Clearance model to the database
+                _context.Clearances.Add(model);
+                _context.SaveChanges(); // Save changes to the database
+
+                return Json(new { success = true });
+            }
+
             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
         }
 
 
+        [HttpGet]
         public IActionResult IdentificationCard()
         {
-            return View();
+            return View(new ID());
+        }
+
+        [HttpPost]
+        public IActionResult IdentificationCard(ID model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Add the Clearance model to the database
+                _context.Ids.Add(model);
+                _context.SaveChanges(); // Save changes to the database
+
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
         }
 
         public IActionResult Organization()
@@ -226,9 +268,25 @@ namespace G_5_BMS.Controllers
 
             return View(model);
         }
+        [HttpGet]
         public IActionResult Certificate()
         {
-            return View();
+            return View(new Certificate());
+        }
+
+        [HttpPost]
+        public IActionResult Certificate(Certificate model)
+        {
+            if (ModelState.IsValid)
+            {
+                // Add the Clearance model to the database
+                _context.Certificates.Add(model);
+                _context.SaveChanges(); // Save changes to the database
+
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
         }
 
         public IActionResult Feedback()

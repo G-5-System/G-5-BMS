@@ -4,7 +4,7 @@
     ViewData["ShowSecondNavbar"] = true;
 }
 <link rel="stylesheet" href="~/css/Certificate.css" asp-append-version="true" />
-
+<link rel="stylesheet" href="~/css/FModal.css" asp-append-version="true" />
 <div class="container mt-3">
     <div class="custom-card">
         <div class="services-section">
@@ -12,7 +12,7 @@
             <span class="services-label">Applicant</span>
         </div>
         <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
+            @using (Html.BeginForm("Certificate", "Home", FormMethod.Post, new { id = "Form" }))
             {
                 <div class="row mb-3">
                     <div class="col">
@@ -38,58 +38,59 @@
                         @Html.DropDownListFor(m => m.Gender, new SelectList(new List<string> { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
                     </div>
                 </div>
-            }
-        </div>
 
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">Contact Information</span>
-        </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
-                <div class="row mb-3">
-                    <div class="col">
-                        @Html.LabelFor(m => m.Address)
-                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
-                    </div>
+                <div class="services-section">
+                    <hr class="divider">
+                    <span class="services-label">Contact Information</span>
                 </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        @Html.LabelFor(m => m.ContactNumber)
-                        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col">
+                            @Html.LabelFor(m => m.Address)
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                        </div>
                     </div>
-                    <div class="col">
-                        @Html.LabelFor(m => m.EmailAddress)
-                        @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
-                    </div>
-                </div>
-            }
-        </div>
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">Other Information</span>
-        </div>
-
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
-                <div class="row mb-3">
-                    <div class="col">
-                        @Html.LabelFor(m => m.Year)
-                        @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
-                    </div>
-                    <div class="col">
-                        @Html.LabelFor(m => m.Purpose)
-                        @Html.TextBoxFor(m => m.Purpose, new { @class = "form-control" })
+                    <div class="row mb-3">
+                        <div class="col">
+                            @Html.LabelFor(m => m.ContactNumber)
+                            @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                        </div>
+                        <div class="col">
+                            @Html.LabelFor(m => m.EmailAddress)
+                            @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
+                        </div>
                     </div>
                 </div>
 
-                <div class="text-end">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="services-section">
+                    <hr class="divider">
+                    <span class="services-label">Other Information</span>
                 </div>
 
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col">
+                            @Html.LabelFor(m => m.Year)
+                            @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+                        </div>
+                        <div class="col">
+                            @Html.LabelFor(m => m.Purpose)
+                            @Html.TextBoxFor(m => m.Purpose, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
             }
         </div>
     </div>
 </div>
+<div id="submissionModal" class="custom-modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <p id="modalMessage"></p>
+    </div>
+</div>
+<script src="~/js/FormValidation.js" defer></script>

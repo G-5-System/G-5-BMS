@@ -102,12 +102,19 @@ namespace G_5_BMS.Controllers
             return RedirectToAction("AdminAuth");
         }
 
-        public IActionResult Applications()
+        public async Task<IActionResult> Applications()
         {
-            ViewBag.Name = HttpContext.User.Identity.Name;
-            return View();
-        }
+            var applicationModel = new Application
+            {
+                Clearances = await _context.Clearances.ToListAsync(),
+                Permits = await _context.Certificates.ToListAsync(),
+                Ids = await _context.Ids.ToListAsync(),
+                Complains = await _context.Complains.ToListAsync()
+            };
 
+            ViewBag.Name = HttpContext.User.Identity.Name; // Store the user's name in ViewBag for use in the view
+            return View(applicationModel);
+        }
 
         public IActionResult HomeContents()
         {

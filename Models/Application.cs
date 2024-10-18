@@ -2,8 +2,9 @@
 {
     public class Application
     {
-        public string Name { get; set; }
-        public string ContactInformation { get; set; }
-        public string EmailAddress { get; set; }
+        public List<Clearance> Clearances { get; set; }
+        public List<Certificate> Permits { get; set; }
+        public List<ID> Ids { get; set; }
+        public List<Complain> Complains { get; set; }
     }
 }

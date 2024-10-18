@@ -4,28 +4,29 @@
     ViewData["ShowSecondNavbar"] = true;
 }
 <link rel="stylesheet" href="~/css/ID.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/FModal.css" asp-append-version="true" /> <!-- Added FModal for modal styling -->
 
 <div class="container mt-3">
     <div class="custom-card">
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">User Information</span>
-        </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
+        @using (Html.BeginForm("IdentificationCard", "Home", FormMethod.Post, new { id = "Form" })) 
+        {
+            <div class="services-section">
+                <hr class="divider">
+                <span class="services-label">User Information</span>
+            </div>
+            <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.FirstName)
-                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.MiddleName)
-                        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.LastName)
-                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", type = "text" })
                     </div>
                 </div>
 
@@ -58,42 +59,39 @@
                         @Html.TextBoxFor(m => m.Age, new { @class = "form-control", type = "number", @min = "0" })
                     </div>
                 </div>
-            }
-        </div>
+            </div>
 
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">Contact Information</span>
-        </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
+            <div class="services-section">
+                <hr class="divider">
+                <span class="services-label">Contact Information</span>
+            </div>
+            <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Address)
-                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control", type = "text" })
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Province)
-                        @Html.TextBoxFor(m => m.Province, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Province, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.Municipality)
-                        @Html.TextBoxFor(m => m.Municipality, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Municipality, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.Barangay)
-                        @Html.TextBoxFor(m => m.Barangay, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Barangay, new { @class = "form-control", type = "text" })
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.ContactNumber)
-                        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", type = "tel" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.EmailAddress)
@@ -104,11 +102,18 @@
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-            }
-        </div>
+            </div>
+        }
     </div>
 </div>
+
+<div id="submissionModal" class="custom-modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <p id="modalMessage"></p>
+    </div>
 </div>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/Clearance.js" asp-append-version="true"></script>
+<script src="~/js/FormValidation.js" defer></script>

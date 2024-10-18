@@ -4,28 +4,28 @@
     ViewData["ShowSecondNavbar"] = true;
 }
 <link rel="stylesheet" href="~/css/Clearance.css" asp-append-version="true" />
-
+<link rel="stylesheet" href="~/css/FModal.css" asp-append-version="true" />
 <div class="container mt-3">
     <div class="custom-card">
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">Applicant</span>
-        </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
+        @using (Html.BeginForm("Clearance", "Home", FormMethod.Post, new { id = "Form" })) // Added id here
+        {
+            <div class="services-section">
+                <hr class="divider">
+                <span class="services-label">Applicant</span>
+            </div>
+            <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.FirstName)
-                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.MiddleName)
-                        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.LastName)
-                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", type = "text" })
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -38,50 +38,44 @@
                         @Html.DropDownListFor(m => m.Gender, new SelectList(new List<string> { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
                     </div>
                 </div>
-            }
-        </div>
+            </div>
 
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">Contact Information</span>
-        </div>
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
+            <div class="services-section">
+                <hr class="divider">
+                <span class="services-label">Contact Information</span>
+            </div>
+            <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Address)
-                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control", type = "text" })
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.ContactNumber)
-                        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", type = "tel" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.EmailAddress)
                         @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
                     </div>
                 </div>
-            }
-        </div>
-        <div class="services-section">
-            <hr class="divider">
-            <span class="services-label">Business Information</span>
-        </div>
+            </div>
 
-        <div class="card-body">
-            @using (Html.BeginForm("Submit", "YourControllerName", FormMethod.Post))
-            {
+            <div class="services-section">
+                <hr class="divider">
+                <span class="services-label">Business Information</span>
+            </div>
+            <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.BusinessName)
-                        @Html.TextBoxFor(m => m.BusinessName, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.BusinessName, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.BNature)
-                        @Html.DropDownListFor(m => m.BNature, new SelectList(new List<string> { "Public", "Private ", "Corporation" }), "Select Business Nature", new { @class = "form-control" })
+                        @Html.DropDownListFor(m => m.BNature, new SelectList(new List<string> { "Public", "Private", "Corporation" }), "Select Business Nature", new { @class = "form-control" })
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -94,9 +88,15 @@
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-
-            }
-        </div>
+            </div>
+        }
     </div>
 </div>
 
+<div id="submissionModal" class="custom-modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <p id="modalMessage"></p>
+    </div>
+</div>
+<script src="~/js/FormValidation.js" defer></script>
