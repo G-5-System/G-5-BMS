@@ -26,6 +26,31 @@ namespace G_5_BMS.Controllers
         public IActionResult Dashboard()
         {
             ViewBag.Name = HttpContext.User.Identity.Name;
+
+            var clearanceCount = _context.Clearances.Count();
+            var certificateCount = _context.Certificates.Count();
+            var idCount = _context.Ids.Count();
+            var complainCount = _context.Complains.Count();
+
+            ViewBag.Data = new
+            {
+                Clearances = clearanceCount,
+                Certificates = certificateCount,
+                Ids = idCount,
+                Complains = complainCount
+            };
+            ViewBag.Clearances = _context.Clearances.OrderByDescending(c => c.CLId) 
+                                                 .Take(5)
+                                                 .ToList();
+            ViewBag.Certificates = _context.Certificates.OrderByDescending(c => c.CRId) 
+                                                            .Take(5)
+                                                            .ToList();
+            ViewBag.Ids = _context.Ids.OrderByDescending(i => i.RId) 
+                                          .Take(5)
+                                          .ToList();
+            ViewBag.Complains = _context.Complains.OrderByDescending(c => c.ComId) 
+                                                      .Take(5)
+                                                      .ToList();
             return View();
         }
         public IActionResult Dashboards()
@@ -76,10 +101,9 @@ namespace G_5_BMS.Controllers
                 var user = _context.UserAccounts.Where(x => (x.UserName == model.UserNameOrEmail || x.Email == model.UserNameOrEmail) && x.Password == model.Password).FirstOrDefault();
                 if (user != null)
                 {
-                    //Success, create cookie
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, user.FirstName), 
+                        new Claim(ClaimTypes.Name, user.FirstName),
                         new Claim("Email", user.Email),
                         new Claim(ClaimTypes.Role, "User"),
                     };
@@ -112,7 +136,7 @@ namespace G_5_BMS.Controllers
                 Complains = await _context.Complains.ToListAsync()
             };
 
-            ViewBag.Name = HttpContext.User.Identity.Name; // Store the user's name in ViewBag for use in the view
+            ViewBag.Name = HttpContext.User.Identity.Name; 
             return View(applicationModel);
         }
 
@@ -125,21 +149,28 @@ namespace G_5_BMS.Controllers
         public IActionResult Organization()
         {
             ViewBag.Name = HttpContext.User.Identity.Name;
+
             var officials = new List<Officials>
-            {
-                new Officials { Id = 1, Title = "Barangay Captain" },
-                new Officials { Id = 2, Title = "Kagawad 1" },
-                new Officials { Id = 3, Title = "Kagawad 2" },
-                new Officials { Id = 4, Title = "Kagawad 3" },
-                new Officials { Id = 5, Title = "Kagawad 4" },
-                new Officials { Id = 6, Title = "Kagawad 5" },
-                new Officials { Id = 7, Title = "Kagawad 6" },
-                new Officials { Id = 8, Title = "Secretary" }
-            };
+    {
+        new Officials { Id = 1, Title = "Barangay Captain" },
+        new Officials { Id = 2, Title = "Kagawad 1" },
+        new Officials { Id = 3, Title = "Kagawad 2" },
+        new Officials { Id = 4, Title = "Kagawad 3" },
+        new Officials { Id = 5, Title = "Kagawad 4" },
+        new Officials { Id = 6, Title = "Kagawad 5" },
+        new Officials { Id = 7, Title = "Kagawad 6" },
+        new Officials { Id = 8, Title = "Secretary" }
+    };
 
             return View(officials);
         }
-    
+
+        public IActionResult Announcement()
+        {
+            ViewBag.Name = HttpContext.User.Identity.Name;
+            return View();
+        }
+
 
         public IActionResult FAQs()
         {
@@ -149,12 +180,17 @@ namespace G_5_BMS.Controllers
         public IActionResult Pinfo()
         {
             ViewBag.Name = HttpContext.User.Identity.Name;
+
+            var user = _context.UserAccounts.FirstOrDefault(u => u.UserName == User.Identity.Name);
+            if (user != null)
+            {
+                ViewBag.FirstName = user.FirstName;
+                ViewBag.Email = user.Email;
+                ViewBag.Password = user.Password;
+            }
+
             return View();
         }
-        public IActionResult Announcement()
-        {
-            ViewBag.Name = HttpContext.User.Identity.Name;
-            return View();
-        }
+
     }
 }

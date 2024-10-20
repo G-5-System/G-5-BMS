@@ -16,7 +16,8 @@ namespace G_5_BMS.Models
         public string Address { get; set; }
 
         [Required(ErrorMessage = "Contact Number is required.")]
-        [Phone(ErrorMessage = "Invalid Contact Number.")]
+        [Phone(ErrorMessage = "Invalid Contact Number format.")]
+        [RegularExpression(@"^\+?[0-9]{10,15}$", ErrorMessage = "Contact Number must be between 10 and 15 digits.")]
         public string ContactNumber { get; set; }
 
         [Required(ErrorMessage = "Email Address is required.")]

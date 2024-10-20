@@ -18,24 +18,29 @@
                     <div class="col">
                         @Html.LabelFor(m => m.FirstName)
                         @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.MiddleName)
                         @Html.TextBoxFor(m => m.MiddleName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.MiddleName, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.LastName)
                         @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Suffix)
-                        @Html.DropDownListFor(m => m.Suffix, new SelectList(new List<string> { "Jr.", "Sr.", "I", "II" }), "Select Suffix", new { @class = "form-control" })
+                        @Html.DropDownListFor(m => m.Suffix, new SelectList(new List<string> { "N/A", "Jr.", "Sr.", "I", "II" }), "Select Suffix", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Suffix, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.Gender)
                         @Html.DropDownListFor(m => m.Gender, new SelectList(new List<string> { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -48,16 +53,19 @@
                         <div class="col">
                             @Html.LabelFor(m => m.Address)
                             @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
                             @Html.LabelFor(m => m.ContactNumber)
-                            @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", type = "tel" })
+                            @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
                         </div>
                         <div class="col">
                             @Html.LabelFor(m => m.EmailAddress)
                             @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
+                            @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
@@ -70,12 +78,14 @@
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col">
-                            @Html.LabelFor(m => m.Year)
+                            @Html.Label("Year", "Resident of the Barangay for:(How Many Years)(1900-2100)")
                             @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger" })
                         </div>
                         <div class="col">
                             @Html.LabelFor(m => m.Purpose)
                             @Html.TextBoxFor(m => m.Purpose, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Purpose, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -91,6 +101,14 @@
     <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
         <p id="modalMessage"></p>
+    </div>
+</div>
+<div id="confirmationModal" style="display: none;">
+    <div class="modal-content">
+        <span id="closeConfirmation" class="close">&times;</span> 
+        <p id="confirmationMessage"></p>
+        <button id="confirmButton">Confirm</button>
+        <button id="cancelButton">Cancel</button>
     </div>
 </div>
 <script src="~/js/FormValidation.js" defer></script>

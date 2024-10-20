@@ -24,6 +24,7 @@ namespace G_5_BMS.Models
         public string Suffix { get; set; }
 
         [Required(ErrorMessage = "Gender is required.")]
+        [RegularExpression("^(Male|Female|Other)$", ErrorMessage = "Gender must be 'Male', 'Female', or 'Other'.")]
         public string Gender { get; set; }
 
         [Required(ErrorMessage = "Civil status is required.")]
@@ -35,7 +36,7 @@ namespace G_5_BMS.Models
         public string Citizenship { get; set; }
 
         [Required(ErrorMessage = "Birthday is required.")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date, ErrorMessage = "Please enter a valid date for the birthday.")]
         [Display(Name = "Date of Birth")]
         public DateTime Birthday { get; set; }
 
@@ -61,7 +62,7 @@ namespace G_5_BMS.Models
 
         [Required(ErrorMessage = "Contact number is required.")]
         [Phone(ErrorMessage = "Please enter a valid contact number.")]
-        [StringLength(15, ErrorMessage = "Contact number cannot be longer than 15 characters.")]
+        [RegularExpression(@"^\+?[0-9]{10,15}$", ErrorMessage = "Contact number must be between 10 and 15 digits.")]
         public string ContactNumber { get; set; }
 
         [Required(ErrorMessage = "Email address is required.")]

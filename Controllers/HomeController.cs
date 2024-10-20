@@ -11,13 +11,12 @@ namespace G_5_BMS.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly AppDbContext _context; // Add this line
+        private readonly AppDbContext _context; 
 
-        // Updated constructor to accept AppDbContext
         public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
-            _context = context; // Assign the context to a private field
+            _context = context;
         }
 
         public IActionResult Index()
@@ -84,9 +83,8 @@ namespace G_5_BMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Add the Clearance model to the database
                 _context.Complains.Add(model);
-                _context.SaveChanges(); // Save changes to the database
+                _context.SaveChanges(); 
 
                 return Json(new { success = true });
             }
@@ -107,9 +105,8 @@ namespace G_5_BMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Add the Clearance model to the database
                 _context.Clearances.Add(model);
-                _context.SaveChanges(); // Save changes to the database
+                _context.SaveChanges(); 
 
                 return Json(new { success = true });
             }
@@ -121,17 +118,22 @@ namespace G_5_BMS.Controllers
         [HttpGet]
         public IActionResult IdentificationCard()
         {
-            return View(new ID());
+            var model = new ID
+            {
+                Birthday = DateTime.Now 
+            };
+
+            return View(model);
         }
+
 
         [HttpPost]
         public IActionResult IdentificationCard(ID model)
         {
             if (ModelState.IsValid)
             {
-                // Add the Clearance model to the database
                 _context.Ids.Add(model);
-                _context.SaveChanges(); // Save changes to the database
+                _context.SaveChanges();
 
                 return Json(new { success = true });
             }
@@ -279,9 +281,8 @@ namespace G_5_BMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Add the Clearance model to the database
                 _context.Certificates.Add(model);
-                _context.SaveChanges(); // Save changes to the database
+                _context.SaveChanges(); 
 
                 return Json(new { success = true });
             }

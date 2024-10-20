@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "FAQs";
 }
 <link rel="stylesheet" href="~/css/Admin-faq.css" asp-append-version="true" />
@@ -8,21 +7,31 @@
 
     <div class="faq-form-container">
         <div class="faq-add-item" id="faq-add-item">
-            <img src="add-icon.png" alt="Add" class="faq-icon faq-add-icon">
+            <a href="#" onclick="addItem()">
+                <img src="~/Images/Admin/add-button.png" alt="add" style="width: 24px; height: 24px;" />
+            </a>
             <span>Add Item</span>
         </div>
         <div class="faq-card">
-            <img src="delete-icon.png" alt="Delete" class="faq-icon faq-delete-icon">
+            <a href="#" onclick="removeItem()">
+                <img src="~/Images/Admin/remove.png" alt="remove" style="width: 24px; height: 24px;" />
+            </a>
             <input type="text" placeholder="What is your question?" class="faq-input">
-            <img src="edit-icon.png" alt="Edit" class="faq-icon faq-edit-icon">
+            <a href="#" onclick="editItem()">
+                <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
+            </a>
         </div>
         <div class="faq-card">
             <input type="text" placeholder="This is the answer..." readonly class="faq-input readonly">
         </div>
         <div class="faq-card">
-            <img src="delete-icon.png" alt="Delete" class="faq-icon faq-delete-icon">
+            <a href="#" onclick="removeItem()">
+                <img src="~/Images/Admin/remove.png" alt="remove" style="width: 24px; height: 24px;" />
+            </a>
             <input type="text" placeholder="What is another question?" class="faq-input">
-            <img src="edit-icon.png" alt="Edit" class="faq-icon faq-edit-icon">
+            <a href="#" onclick="editItem()">
+                <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
+            </a>
         </div>
         <div class="faq-card">
             <input type="text" placeholder="This is another answer..." readonly class="faq-input readonly">

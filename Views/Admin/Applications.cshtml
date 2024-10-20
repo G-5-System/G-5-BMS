@@ -11,8 +11,6 @@
             <h2>List of Applications</h2>
         </div>
         <div class="card-body">
-
-            <!-- Clearances Section -->
             <div class="inner-card">
                 <div class="table-like-header">Barangay Clearance</div>
                 <div class="inner-card-body">
@@ -25,16 +23,18 @@
                                 <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
                                 <div class="table-like-cell">Email Address: @application.EmailAddress</div>
                                 <div class="table-like-cell">
-                                    <button class="btn btn-primary">Email</button>
-                                    <button class="btn btn-danger">X</button>
+                                    <a href="mailto:@application.EmailAddress">
+                                        <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
+                                    </a>
+                                    <a href="#">
+                                        <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;margin-left:15px; margin-right:5px;" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     }
                 </div>
             </div>
-
-            <!-- Permits Section -->
             <div class="inner-card">
                 <div class="table-like-header">Barangay Permit</div>
                 <div class="inner-card-body">
@@ -47,16 +47,18 @@
                                 <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
                                 <div class="table-like-cell">Email Address: @application.EmailAddress</div>
                                 <div class="table-like-cell">
-                                    <button class="btn btn-primary">Email</button>
-                                    <button class="btn btn-danger">X</button>
+                                    <a href="mailto:@application.EmailAddress">
+                                        <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
+                                    </a>
+                                    <a href="#">
+                                        <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;margin-left:15px; margin-right:5px;" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     }
                 </div>
             </div>
-
-            <!-- IDs Section -->
             <div class="inner-card">
                 <div class="table-like-header">Barangay ID</div>
                 <div class="inner-card-body">
@@ -69,16 +71,18 @@
                                 <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
                                 <div class="table-like-cell">Email Address: @application.EmailAddress</div>
                                 <div class="table-like-cell">
-                                    <button class="btn btn-primary">Email</button>
-                                    <button class="btn btn-danger">X</button>
+                                    <a href="mailto:@application.EmailAddress">
+                                        <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
+                                    </a>
+                                    <a href="#">
+                                        <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px; margin-left:15px; margin-right:5px;" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     }
                 </div>
             </div>
-
-            <!-- Complaints Section -->
             <div class="inner-card">
                 <div class="table-like-header">Complaints</div>
                 <div class="inner-card-body">
@@ -91,8 +95,12 @@
                                 <div class="table-like-cell">Contact Number: @application.ContactNumber</div>
                                 <div class="table-like-cell">Email Address: @application.EmailAddress</div>
                                 <div class="table-like-cell">
-                                    <button class="btn btn-primary">Email</button>
-                                    <button class="btn btn-danger">X</button>
+                                    <a href="mailto:@application.EmailAddress">
+                                        <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
+                                    </a>
+                                    <a href="#">
+                                        <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;margin-left:15px; margin-right:5px;" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -105,3 +113,8 @@
 </div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function deleteApplication(id) {
+        alert('Delete application with ID: ' + id);
+    }
+</script>

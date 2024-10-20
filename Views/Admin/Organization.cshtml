@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="~/css/Officials.css" />
 <script src="~/js/Officials.js" defer></script>
 
-<div class="container-org mt-4 ">
+<div class="container-org mt-4">
     <div class="org-header mb-4">
         <h2>Edit Barangay Officials</h2>
         <div class="custom-dropdown">
@@ -21,23 +21,24 @@
         </div>
     </div>
 
-
-
     <div class="card">
         <div class="card-body">
             <div class="inner-cards-container" id="officialsContainer">
-                <!-- Inner Card Rows -->
                 @foreach (var official in Model)
                 {
                     <div class="inner-card">
                         <div class="inner-card-row">
-                            <button class="btn-data btn-danger btn-sm">X</button>
+                            <a href="#" onclick="removeAction(@official.Id)" title="Remove">
+                                <img src="~/Images/Admin/remove.png" alt="remove" style="width: 24px; height: 24px;" />
+                            </a>
                             <div class="inner-card-title">@official.Title</div>
-                            <button class="btn-data btn-primary btn-sm">Edit</button>
+                            <a href="#" onclick="editAction(@official.Id)" title="Edit">
+                                <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
+                            </a>
                         </div>
                     </div>
                 }
             </div>
         </div>
     </div>
-    </div>
+</div>

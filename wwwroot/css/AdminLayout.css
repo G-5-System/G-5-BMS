@@ -20,12 +20,12 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    min-height: 100vh; 
 }
 .d-flex {
     display: flex;
-    flex: 1; /* Ensures the container expands to fill the remaining height */
-    flex-direction: row; /* Ensures the sidebar and content are side by side */
+    flex: 1; 
+    flex-direction: row;
 }
 
 .sidebar {
@@ -34,9 +34,9 @@ body {
     padding: 15px;
     transition: all 0.3s;
     flex-shrink: 0;
-    height: 100vh; /* Makes the sidebar full height */
-    position: sticky; /* Keeps it in place when scrolling */
-    top: 0; /* Ensures the sticky positioning starts from the top */
+    height: 100vh; 
+    position: sticky; 
+    top: 0; 
 }
 
 .sidebar-contents {
@@ -54,7 +54,7 @@ body {
 
         .sidebar ul li a {
             text-decoration: none;
-            color: white; /* White text color on hover or active */
+            color: white; 
             display: flex;
             align-items: center;
             padding: 10px;
@@ -64,7 +64,7 @@ body {
 
             .sidebar ul li a:hover,
             .sidebar ul li a.active {
-                background-color: #81AED6; /* Dark blue background on hover or active */
+                background-color: #81AED6; 
 
             }
 
@@ -95,23 +95,23 @@ body {
     border: none;
 }
 .circle {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    border-radius: 50%; /* Makes it circular */
-    background-color: #007bff; /* Circle color */
-    margin-right: 10px; /* Space between circle and name */
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%; 
+    background-color: #007bff; 
+    margin-right: 10px; 
 }
 
 .sidebar-name {
-    font-size: 1.2rem; /* Adjust font size as needed */
-    color: white; /* Name color */
-    font-weight: bold; /* Make the name bold */
+    font-size: 1.2rem; 
+    color: white;
+    font-weight: bold; 
 }
 
 .divider {
-    border: 0; /* Removes default border */
-    border-top: 1px solid #dee2e6; /* Adds a top border for the divider */
-    margin: 10px 0; /* Adds space above and below the divider */
+    border: 0; 
+    border-top: 1px solid #dee2e6; 
+    margin: 10px 0; 
 }
 .sidebar-contents a {
     display: flex;
@@ -125,8 +125,8 @@ body {
 
 .logout-form {
     margin-top: auto;
-    margin-bottom: 0; /* Moves the logout button to the bottom */
-    padding-top: 200px; /* Adds some space above the logout button */
+    margin-bottom: 0; 
+    padding-top: 200px; 
 }
 
 .logout-link {
@@ -140,8 +140,8 @@ body {
 }
 
     .logout-link:hover {
-        background-color: darkred; /* Hover background color */
-        color: white; /* Hover text color */
+        background-color: darkred; 
+        color: white;
         border-radius: 5px;
     }
 
@@ -153,33 +153,33 @@ body {
 .sidebar-header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* Adds space below the header */
+    margin-bottom: 10px; 
 }
 .container {
-    flex: 1; /* Allow the container to grow and fill available space */
+    flex: 1; 
 }
 .footer {
-    background-color: #f8f9fa; /* Light background color */
-    padding: 10px; /* Add padding for space */
+    background-color: #f8f9fa; 
+    padding: 10px; 
 }
 
 .footer-left {
-    font-size: 14px; /* Adjust font size for the left section */
+    font-size: 14px; 
 }
 
 .footer-right {
-    font-size: 14px; /* Adjust font size for the right section */
+    font-size: 14px; 
 }
 
 .footer-link {
-    color: #007bff; /* Link color */
-    text-decoration: none; /* Remove underline */
+    color: #007bff; 
+    text-decoration: none; 
 }
 
     .footer-link:hover {
-        text-decoration: underline; /* Add underline on hover */
+        text-decoration: underline;
     }
 
 .border-top {
-    border-top: 1px solid #dee2e6; /* Top border color */
+    border-top: 1px solid #dee2e6; 
 }

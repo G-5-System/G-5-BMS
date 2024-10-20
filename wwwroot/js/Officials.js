@@ -11,34 +11,33 @@
     dropdownItems.forEach(item => {
         item.addEventListener('click', function (event) {
             event.preventDefault();
+
             const councilType = event.target.getAttribute('data-council');
-
-
             officialsContainer.innerHTML = '';
 
             let officials;
 
             if (councilType === 'barangay') {
                 officials = [
-                    { title: "Barangay Captain" },
-                    { title: "Kagawad 1" },
-                    { title: "Kagawad 2" },
-                    { title: "Kagawad 3" },
-                    { title: "Kagawad 4" },
-                    { title: "Kagawad 5" },
-                    { title: "Kagawad 6" },
-                    { title: "Secretary" }
+                    { id: 1, title: "Barangay Captain" },
+                    { id: 2, title: "Kagawad 1" },
+                    { id: 3, title: "Kagawad 2" },
+                    { id: 4, title: "Kagawad 3" },
+                    { id: 5, title: "Kagawad 4" },
+                    { id: 6, title: "Kagawad 5" },
+                    { id: 7, title: "Kagawad 6" },
+                    { id: 8, title: "Secretary" }
                 ];
             } else {
                 officials = [
-                    { title: "Brgy Chairman" },
-                    { title: "Kagawad 1" },
-                    { title: "Kagawad 2" },
-                    { title: "Kagawad 3" },
-                    { title: "Kagawad 4" },
-                    { title: "Kagawad 5" },
-                    { title: "Kagawad 6" },
-                    { title: "Secretary" }
+                    { id: 1, title: "Brgy Chairman" },
+                    { id: 2, title: "Kagawad 1" },
+                    { id: 3, title: "Kagawad 2" },
+                    { id: 4, title: "Kagawad 3" },
+                    { id: 5, title: "Kagawad 4" },
+                    { id: 6, title: "Kagawad 5" },
+                    { id: 7, title: "Kagawad 6" },
+                    { id: 8, title: "Secretary" }
                 ];
             }
 
@@ -47,9 +46,13 @@
                 card.className = 'inner-card';
                 card.innerHTML = `
                     <div class="inner-card-row">
-                        <button class="btn-data btn-danger btn-sm">X</button>
+                        <a href="#" onclick="removeAction(${official.id})" title="Remove" class="remove-link">
+                            <img src="/Images/Admin/remove.png" alt="remove" style="width: 24px; height: 24px;" />
+                        </a>
                         <div class="inner-card-title">${official.title}</div>
-                        <button class="btn-data btn-primary btn-sm">Edit</button>
+                        <a href="#" onclick="editAction(${official.id})" title="Edit" class="edit-link">
+                            <img src="/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
+                        </a>
                     </div>
                 `;
                 officialsContainer.appendChild(card);

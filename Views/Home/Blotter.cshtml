@@ -48,11 +48,11 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
-                        @Html.Label("Accused Full Name") // Updated for clarity
+                        @Html.Label("Accused Full Name") 
                         @Html.TextBox("AccusedFullName", null, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
-                        @Html.Label("Accused Address") // Updated for clarity
+                        @Html.Label("Accused Address") 
                         @Html.TextBox("AccusedAddress", null, new { @class = "form-control", type = "text" })
                     </div>
                 </div>
@@ -83,6 +83,14 @@
     <div class="modal-content">
         <span class="close" id="closeModal">&times;</span>
         <p id="modalMessage"></p>
+    </div>
+</div>
+<div id="confirmationModal" style="display: none;">
+    <div class="modal-content">
+        <span id="closeConfirmation" class="close">&times;</span> <!-- Make sure this ID is correct -->
+        <p id="confirmationMessage"></p>
+        <button id="confirmButton">Confirm</button>
+        <button id="cancelButton">Cancel</button>
     </div>
 </div>
 <script src="~/js/FormValidation.js" defer></script>

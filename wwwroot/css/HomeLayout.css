@@ -1,11 +1,10 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    min-height: 100vh;
 }
 
 .header-nav {
-    
     background-color: #03254C;
 }
 
@@ -24,35 +23,36 @@ body {
         font-weight: 600;
         color: white;
     }
+
 .container {
-    flex: 1; /* Allow the container to grow and fill available space */
+    flex: 1;
 }
+
 .footer {
-    background-color: #f8f9fa; /* Light background color */
-    padding: 10px; /* Add padding for space */
+    background-color: #f8f9fa;
+    padding: 10px;
 }
 
 .footer-left {
-    font-size: 14px; /* Adjust font size for the left section */
+    font-size: 14px;
 }
 
 .footer-right {
-    font-size: 14px; /* Adjust font size for the right section */
+    font-size: 14px;
 }
 
 .footer-link {
-    color: #007bff; /* Link color */
-    text-decoration: none; /* Remove underline */
+    color: #007bff;
+    text-decoration: none;
 }
 
     .footer-link:hover {
-        text-decoration: underline; /* Add underline on hover */
+        text-decoration: underline;
     }
 
 .border-top {
-    border-top: 1px solid #dee2e6; /* Top border color */
+    border-top: 1px solid #dee2e6;
 }
-
 
 .title {
     font-size: 3vh;
@@ -63,11 +63,12 @@ body {
     font-size: 2vh;
     color: white;
 }
+
 .Sec-navbar {
-    padding:0;
-    margin:0;
-    background-color: #1167B1; 
-    color: white; 
+    padding: 0;
+    margin: 0;
+    background-color: #1167B1;
+    color: white;
 }
 
     .Sec-navbar h1 {
@@ -75,5 +76,5 @@ body {
     }
 
     .Sec-navbar p {
-        font-size: 1.2rem; 
+        font-size: 1.2rem;
     }

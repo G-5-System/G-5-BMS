@@ -1,13 +1,168 @@
-﻿@{
+﻿@model Application
+@{
     ViewData["Title"] = "Admin Dashboard";
 }
 
 <link rel="stylesheet" href="~/css/Dashboard.css" asp-append-version="true" />
 
-<div class="container mt-4">
+<div class="container mt-4 mb-3">
     <h2>Dashboard Overview</h2>
-      <p>This is where the graphs are found.</p>
-      <p>Under development since the retrieval or fetching of data are not yet applied in the system</p>
-      </div>
+    @*<pre>@Html.Raw(Json.Serialize(ViewBag.Data))</pre>*@
+    <input type="hidden" id="clearances" value="@ViewBag.Data.Clearances" />
+    <input type="hidden" id="certificates" value="@ViewBag.Data.Certificates" />
+    <input type="hidden" id="ids" value="@ViewBag.Data.Ids" />
+    <input type="hidden" id="complains" value="@ViewBag.Data.Complains" />
+    <div class="d-flex mt-4">
+        <div class="d-flex flex-column mr-4 custom-height" style="width: 250px;">
+
+            <div class="card text-black mb-3">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Total Clearance Requests</h6>
+                    <p class="card-text total-value" id="totalClearanceRequests">0</p> 
+                </div>
+            </div>
+            <div class="card text-black mb-3">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Total Certificate Requests</h6>
+                    <p class="card-text total-value" id="totalCertificateRequests">0</p> 
+                </div>
+            </div>
+
+            <div class="card text-black mb-3">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Total Complaints</h6>
+                    <p class="card-text total-value" id="totalComplaints">0</p> 
+                </div>
+            </div>
+            <div class="card text-black mb-3">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Total ID Requests</h6>
+                    <p class="card-text total-value" id="totalIdRequests">0</p> 
+                </div>
+            </div>
+
+        </div>
+        <div class="card flex-grow-1 mb-3 ms-3 custom-height">
+            <div class="card-body">
+                <h5 class="card-title text-center">Charts Overview</h5>
+                <div class="d-flex justify-content-between">
+                    <div style="position: relative; height: 400px; width: 400px; margin-right: 20px;">
+                        <canvas id="myPieChart" style="height: 100%; width: 100%;"></canvas>
+                    </div>
+                    <div style="position: relative; height: 400px; width: 600px;">
+                        <canvas id="myBarChart" style="height: 100%; width: 100%;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <hr />
+    <h2>Recent Data</h2>
+<div class="container mt-4 mb-3">
+    <div class="recent-data-tables " style="margin-top: 30px;">
+        <div class="table-container" style="margin-bottom: 20px;">
+            <h4>Recent Clearances</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>CLId</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Clearances)
+                    {
+                        <tr>
+                            <td>@item.CLId</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.EmailAddress</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container" style="margin-bottom: 20px;">
+            <h4>Recent Certificates</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>CRId</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Certificates)
+                    {
+                        <tr>
+                            <td>@item.CRId</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.EmailAddress</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container" style="margin-bottom: 20px;">
+            <h4>Recent IDs</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>RId</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Ids)
+                    {
+                        <tr>
+                            <td>@item.RId</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.EmailAddress</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-container">
+            <h4>Recent Complaints</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ComId</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Complains)
+                    {
+                        <tr>
+                            <td>@item.ComId</td>
+                            <td>@item.FullName  </td>
+                            <td>@item.EmailAddress</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="~/js/Dashboard.js"></script>
+<script src="~/js/D-Charts.js" asp-append-version="true"></script>

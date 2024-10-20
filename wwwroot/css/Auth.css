@@ -1,35 +1,36 @@
 ﻿.container-1 {
-    max-width: 500px; /* Decreased width for a more compact layout */
+    max-width: 500px;
     background-color: #D0EFFF;
     box-shadow: 0 4px 3px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-    padding: 100px 50px; /* Adjusted padding for a more compact look */
+    padding: 100px 50px;
     border-radius: 15px;
     margin: auto;
 }
 
 .container-2 {
     background-color: #FFFF;
-    max-width: 500px; /* Match the container-1 width */
+    max-width: 500px;
     margin: auto;
-    padding: 20px; /* Consistent padding */
+    padding: 20px;
     box-shadow: inherit;
     border-radius: inherit;
-    height: auto; /* Allow height to adjust */
+    height: auto;
 }
 
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 15px 45px; /* Reduced padding for inputs */
-    margin-bottom: 20px; /* Reduced margin for less space */
+    padding: 15px 45px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 15px;
     box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.19);
 }
+
 .center-text {
-    text-align: center; /* Center the text */
-    margin: 10px 0; /* Optional: Add margin for spacing */
-    color: #03254C; /* Match color with the title for consistency */
-    font-size: 1.0rem; /* Adjust font size as desired */
+    text-align: center;
+    margin: 10px 0;
+    color: #03254C;
+    font-size: 1.0rem;
 }
 
 label {
@@ -46,28 +47,28 @@ h1, .btn-container {
     background-color: #D0EFFF;
     border: none;
     color: #03254C;
-    padding: 10px 0; /* Reduced button padding */
+    padding: 10px 0;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px; /* Smaller font size */
-    width: 100%; /* Full width button */
+    font-size: 18px;
+    width: 100%;
     cursor: pointer;
     box-shadow: 0 3px 1px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.19);
     border-radius: 15px;
     font-weight: bold;
-    margin-top: 10px; /* Add a small margin on top for spacing */
+    margin-top: 10px;
 }
 
 .icon {
     position: absolute;
-    left: 15px; /* Adjusted for a more compact layout */
+    left: 15px;
     top: 63%;
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-50%);
     z-index: 1;
     color: #03254C;
     pointer-events: none;
-    font-size: 20px; /* Reduced icon size */
+    font-size: 20px;
 }
 
 .username-container, .password-container {
@@ -78,7 +79,7 @@ h1, .btn-container {
     position: absolute;
     right: 15px;
     top: 63%;
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-50%);
     z-index: 1;
     cursor: pointer;
     color: #03254C;

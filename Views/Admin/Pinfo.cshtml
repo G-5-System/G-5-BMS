@@ -1,41 +1,52 @@
-﻿@{
+﻿@model G_5_BMS.Models.UserAccount
+
+@{
     ViewData["Title"] = "Admin Info";
 }
+
 <link rel="stylesheet" href="~/css/Pinfo.css" asp-append-version="true" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
 
-<div class="admin-info-card">
-    <div class="admin-info-card-header">
-        <h2>Personal Info</h2>
+<body>
+    <div class="admin-info-card">
+        <div class="admin-info-card-header">
+            <h2>Personal Info</h2>
+        </div>
+        <div class="main-card">
+            <div class="upload-card">
+                <div class="upload-section">
+                    <div class="photo-box" id="photo-preview">Photo</div>
+                    <input type="file" id="file-input" accept="image/*">
+                </div>
+            </div>
+
+            <div class="name-card">
+                <div class="input-container">
+                    <label for="name-input"><i class="bi bi-person"></i> </label>
+                    <input type="text" id="name-input" value="@ViewBag.FirstName" readonly>
+                    <button class="edit-button" data-field="name"> <i class="bi bi-pencil"></i></button>
+                </div>
+            </div>
+
+            <div class="email-card">
+                <div class="input-container">
+                    <label for="email-input"><i class="bi bi-envelope"></i> </label>
+                    <input type="email" id="email-input" value="@ViewBag.Email" readonly>
+                    <button class="edit-button" data-field="email"> <i class="bi bi-pencil"></i></button>
+                </div>
+            </div>
+
+            <div class="password-card">
+                <div class="input-container">
+                    <label for="password-input"><i class="bi bi-lock"></i></label>
+                    <input type="password" id="password-input" value="@ViewBag.Password" readonly>
+                    <button class="edit-button" data-field="password"> <i class="bi bi-pencil"></i></button>
+                </div>
+            </div>
+
+            @Html.AntiForgeryToken()
+        </div>
     </div>
-    <div class="main-card">
-        <div class="upload-card">
-            <div class="upload-section">
-                <div class="photo-box" id="photo-preview">Photo</div>
-                <input type="file" id="file-input" accept="image/*">
-            </div>
-        </div>
 
-        <div class="name-card">
-            <div class="input-container">
-                <input type="text" id="name-input" placeholder="Enter your name">
-                <button class="edit-button">Edit</button>
-            </div>
-        </div>
-
-        <div class="email-card">
-            <div class="input-container">
-                <input type="email" id="email-input" placeholder="Enter your email address">
-                <button class="edit-button">Edit</button>
-            </div>
-        </div>
-
-        <div class="password-card">
-            <div class="input-container">
-                <input type="password" id="password-input" placeholder="Enter your password">
-                <button class="edit-button">Edit</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="~/js/Pinfo.js"></script>
+    <script src="~/js/Pinfo.js"></script>
+</body>

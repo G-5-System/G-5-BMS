@@ -30,8 +30,8 @@
 
 .table-like-row {
     display: flex;
-    align-items: center; /* Center align items vertically */
-    justify-content: space-between; /* Align items horizontally */
+    align-items: center; 
+    justify-content: space-between; 
     border-bottom: 1px solid #ccc;
     padding: 8px 0;
 }
@@ -42,11 +42,11 @@
     background-color: green;
     border-radius: 50%;
     margin-right: 10px;
-    flex-shrink: 0; /* Ensure the circle doesn't shrink */
+    flex-shrink: 0; 
 }
 
 .table-like-cell {
-    flex: 0 0 auto; /* Don't allow cells to grow, fixed size */
+    flex: 0 0 auto; 
     padding: 0 8px;
 }
 
