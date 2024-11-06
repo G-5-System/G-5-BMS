@@ -1,50 +1,72 @@
-﻿@{
+﻿@model G_5_BMS.Models.Announcement
+@{
     ViewData["Title"] = "Announcement";
 }
 <link rel="stylesheet" href="~/css/admin-anno.css" asp-append-version="true" />
 <script src="https://kit.fontawesome.com/852b931f78.js" crossorigin="anonymous"></script>
+
 <div class="container">
     <div class="announcement-container">
         <h1>Announcement</h1>
     </div>
+
     <h2>
-        <a href="#" onclick="addAnnouncement()">
-        <img src="~/Images/Admin/add-button.png" alt="edit" style="width: 24px; height: 24px; margin-right:10px;" />
-    </a> Announcement</h2>
-    <div class="content">
-        <p class="date-time">28 September 2024 10:44PM</p>
-        <h3>PABATID!</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut viverra ligula. Ut consectetur convallis pretium. Integer ullamcorper risus scelerisque magna varius, at commodo mi accumsan. Vestibulum et vestibulum mi, eget hendrerit nisl. Nunc leo ex, hendrerit eget elementum vitae, scelerisque ut urna. Integer nec lacus magna. Nulla facilisi.
-
-        </p>
-    </div>
-
-    <div class="icons">
-        <a href="#" onclick="editAnnouncement()">
-            <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;margin-right:10px;" />
+        <a href="#" onclick="openModal()" style="cursor: pointer;">
+            <img src="~/Images/Admin/add-button.png" alt="add" style="width: 24px; height: 24px; margin-right:10px;" />
         </a>
-        <a href="#" onclick="deleteAnnouncement()">
-            <img src="~/Images/Admin/delete.png" alt="edit" style="width: 24px; height: 24px;" />
-        </a>
-    </div>
+        Announcement
+    </h2>
 
-    <div class="content">
-        <p class="date-time">28 September 2024 10:44PM</p>
-        <h3>HEP! HEP!</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut viverra ligula. Ut consectetur convallis pretium. Integer ullamcorper risus scelerisque magna varius, at commodo mi accumsan. Vestibulum et vestibulum mi, eget hendrerit nisl. Nunc leo ex, hendrerit eget elementum vitae, scelerisque ut urna. Integer nec lacus magna. Nulla facilisi.
+    @foreach (var HomeContents in Model.Announcements) // Loop through each announcement
+    {
+        <div class="content">
+            <p class="date-time">@HomeContents.DateTime.ToString("dd MMMM yyyy hh:mm tt")</p>
+            <h3>@HomeContents.Title</h3>
+            <p>
+                @HomeContents.Body
+            </p>
+        </div>
 
-        </p>
-    </div>
+        <div class="icons">
+            <a href="#" onclick="editAnnouncement(@HomeContents.AnnoId)">
+       
+                <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px; margin-right:10px;" />
+            </a>
+            <a href="#" onclick="deleteAnnouncement(@HomeContents.AnnoId)">
 
-    <div class="icons">
-        <a href="#" onclick="editAnnouncement()">
-            <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;margin-right:10px;" />
-        </a>
-        <a href="#" onclick="deleteAnnouncement()">
-            <img src="~/Images/Admin/delete.png" alt="edit" style="width: 24px; height: 24px;" />
-        </a>
+                <img src="~/Images/Admin/delete.png" alt="delete" style="width: 24px; height: 24px;" />
+            </a>
+        </div>
+    }
+</div>
+
+
+<!-- Modal for Adding Announcement -->
+<div id="addano" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Add Announcement</h2>
+        <form asp-action="Create" method="post">
+            <div>
+                <label for="announcementTitle">Title:</label>
+                <input type="text" id="announcementTitle" name="Title" required>
+            </div>
+            <div>
+                <label for="announcementBody">Body:</label>
+                <textarea id="announcementBody" name="Body" required></textarea>
+            </div>
+            <div>
+                <label for="announcementDateTime">Date & Time:</label>
+                <input type="datetime-local" id="announcementDateTime" name="DateTime" required>
+            </div>
+            <div>
+                <label for="announcementLocation">Location:</label>
+                <input type="text" id="announcementLocation" name="Location" placeholder="Enter location" required>
+            </div>
+            <button type="submit" class="submit-button">Create Announcement</button>
+        </form>
     </div>
 </div>
 
+
+<script src="~/js/Admin-Anno.js" asp-append-version="true"></script>

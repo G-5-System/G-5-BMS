@@ -4,6 +4,9 @@
     ViewData["Title"] = "Applications";
 }
 <link rel="stylesheet" href="~/css/Application.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 <div class="container mt-4">
     <div class="card">
@@ -11,102 +14,148 @@
             <h2>List of Applications</h2>
         </div>
         <div class="card-body">
-            <div class="inner-card">
-                <div class="table-like-header">Barangay Clearance</div>
-                <div class="inner-card-body">
-                    @foreach (var application in Model.Clearances)
-                    {
-                        <div class="table-like">
-                            <div class="table-like-row">
-                                <div class="green-circle"></div>
-                                <div class="table-like-cell">Name: @application.FirstName @application.MiddleName @application.LastName</div>
-                                <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
-                                <div class="table-like-cell">Email Address: @application.EmailAddress</div>
-                                <div class="table-like-cell">
-                                    <a href="mailto:@application.EmailAddress">
-                                        <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
-                                    </a>
-                                    <a href="#">
-                                        <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;margin-left:15px; margin-right:5px;" />
-                                    </a>
+            <form method="get" asp-action="Applications" class="mb-3 position-relative">
+                <input type="text" name="searchQuery" value="@ViewBag.SearchQuery" class="form-control" id="searchBar" placeholder="Search by name or contact..." style="padding-left: 40px;">
+                <i class="fas fa-search position-absolute" style="top: 50%; left: 10px; transform: translateY(-50%);"></i>
+            </form>
+
+            @if (ViewBag.HasClearances)
+            {
+
+
+                <div class="inner-card">
+                    <div class="table-like-header">Barangay Clearance</div>
+                    <div class="inner-card-body">
+                        @foreach (var application in Model.Clearances)
+                        {
+                            <div class="table-like">
+                                <div class="table-like-row">
+                                    <div class="green-circle"></div>
+                                    <div class="table-like-cell">Name: @application.FirstName @application.MiddleName @application.LastName</div>
+                                    <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
+                                    <div class="table-like-cell">Email Address: @application.EmailAddress</div>
+                                    <div class="table-like-cell" style="display: flex; align-items: center;">
+                                        <a href="#" style="color: black; margin-right: 15px;">
+                                            <span class="material-icons" style="font-size: 30px;">info</span>
+                                        </a>
+
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=@application.EmailAddress&su=Your Subject&body=Your Message Here" target="_blank" style="margin-right: 15px;">
+                                            <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
+                                        </a>
+
+                                        <a href="#">
+                                            <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;" />
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
-            <div class="inner-card">
-                <div class="table-like-header">Barangay Permit</div>
-                <div class="inner-card-body">
-                    @foreach (var application in Model.Permits)
-                    {
-                        <div class="table-like">
-                            <div class="table-like-row">
-                                <div class="green-circle"></div>
-                                <div class="table-like-cell">Name: @application.FirstName @application.MiddleName @application.LastName</div>
-                                <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
-                                <div class="table-like-cell">Email Address: @application.EmailAddress</div>
-                                <div class="table-like-cell">
-                                    <a href="mailto:@application.EmailAddress">
-                                        <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
-                                    </a>
-                                    <a href="#">
-                                        <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;margin-left:15px; margin-right:5px;" />
-                                    </a>
+            }
+
+            @if (ViewBag.HasPermits)
+            {
+                <div class="inner-card">
+                    <div class="table-like-header">Barangay Permit</div>
+                    <div class="inner-card-body">
+                        @foreach (var application in Model.Permits)
+                        {
+                            <div class="table-like">
+                                <div class="table-like-row">
+                                    <div class="green-circle"></div>
+                                    <div class="table-like-cell">Name: @application.FirstName @application.MiddleName @application.LastName</div>
+                                    <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
+                                    <div class="table-like-cell">Email Address: @application.EmailAddress</div>
+                                    <div class="table-like-cell" style="display: flex; align-items: center;">
+                                        <a href="#" style="color: black; margin-right: 15px;">
+                                            <span class="material-icons" style="font-size: 30px;">info</span>
+                                        </a>
+
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=@application.EmailAddress&su=Your Subject&body=Your Message Here" target="_blank" style="margin-right: 15px;">
+                                            <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
+                                        </a>
+
+                                        <a href="#">
+                                            <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;" />
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
-            <div class="inner-card">
-                <div class="table-like-header">Barangay ID</div>
-                <div class="inner-card-body">
-                    @foreach (var application in Model.Ids)
-                    {
-                        <div class="table-like">
-                            <div class="table-like-row">
-                                <div class="green-circle"></div>
-                                <div class="table-like-cell">Name: @application.FirstName @application.MiddleName @application.LastName</div>
-                                <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
-                                <div class="table-like-cell">Email Address: @application.EmailAddress</div>
-                                <div class="table-like-cell">
-                                    <a href="mailto:@application.EmailAddress">
-                                        <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
-                                    </a>
-                                    <a href="#">
-                                        <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px; margin-left:15px; margin-right:5px;" />
-                                    </a>
+            }
+
+            @if (ViewBag.HasIds)
+            {
+                <div class="inner-card">
+                    <div class="table-like-header">Barangay ID</div>
+                    <div class="inner-card-body">
+                        @foreach (var application in Model.Ids)
+                        {
+                            <div class="table-like">
+                                <div class="table-like-row">
+                                    <div class="green-circle"></div>
+                                    <div class="table-like-cell">Name: @application.FirstName @application.MiddleName @application.LastName</div>
+                                    <div class="table-like-cell">Contact Information: @application.ContactNumber</div>
+                                    <div class="table-like-cell">Email Address: @application.EmailAddress</div>
+                                    <div class="table-like-cell" style="display: flex; align-items: center;">
+                                        <a href="#" style="color: black; margin-right: 15px;">
+                                            <span class="material-icons" style="font-size: 30px;">info</span>
+                                        </a>
+
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=@application.EmailAddress&su=Your Subject&body=Your Message Here" target="_blank" style="margin-right: 15px;">
+                                            <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
+                                        </a>
+
+                                        <a href="#">
+                                            <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;" />
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
-            <div class="inner-card">
-                <div class="table-like-header">Complaints</div>
-                <div class="inner-card-body">
-                    @foreach (var application in Model.Complains)
-                    {
-                        <div class="table-like">
-                            <div class="table-like-row">
-                                <div class="green-circle"></div>
-                                <div class="table-like-cell">Full Name: @application.FullName</div>
-                                <div class="table-like-cell">Contact Number: @application.ContactNumber</div>
-                                <div class="table-like-cell">Email Address: @application.EmailAddress</div>
-                                <div class="table-like-cell">
-                                    <a href="mailto:@application.EmailAddress">
-                                        <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
-                                    </a>
-                                    <a href="#">
-                                        <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;margin-left:15px; margin-right:5px;" />
-                                    </a>
+            }
+
+            @if (ViewBag.HasComplains)
+            {
+                <div class="inner-card">
+                    <div class="table-like-header">Complaints</div>
+                    <div class="inner-card-body">
+                        @foreach (var application in Model.Complains)
+                        {
+                            <div class="table-like">
+                                <div class="table-like-row">
+                                    <div class="green-circle"></div>
+                                    <div class="table-like-cell">Full Name: @application.FullName</div>
+                                    <div class="table-like-cell">Contact Number: @application.ContactNumber</div>
+                                    <div class="table-like-cell">Email Address: @application.EmailAddress</div>
+                                    <div class="table-like-cell" style="display: flex; align-items: center;">
+                                        <a href="#" style="color: black; margin-right: 15px;">
+                                            <span class="material-icons" style="font-size: 30px;">info</span>
+                                        </a>
+
+                                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=@application.EmailAddress&su=Your Subject&body=Your Message Here" target="_blank" style="margin-right: 15px;">
+                                            <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px;" />
+                                        </a>
+
+                                        <a href="#">
+                                            <img src="~/Images/Admin/remove.png" alt="Delete" style="width: 24px; height: 24px;" />
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
+            }
 
         </div>
     </div>

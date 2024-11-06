@@ -4,59 +4,70 @@
 }
 
 <link rel="stylesheet" href="~/css/Dashboard.css" asp-append-version="true" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<div class="container mt-4 mb-3">
-    <h2>Dashboard Overview</h2>
-    @*<pre>@Html.Raw(Json.Serialize(ViewBag.Data))</pre>*@
-    <input type="hidden" id="clearances" value="@ViewBag.Data.Clearances" />
-    <input type="hidden" id="certificates" value="@ViewBag.Data.Certificates" />
-    <input type="hidden" id="ids" value="@ViewBag.Data.Ids" />
-    <input type="hidden" id="complains" value="@ViewBag.Data.Complains" />
-    <div class="d-flex mt-4">
-        <div class="d-flex flex-column mr-4 custom-height" style="width: 250px;">
+    <div class="container mb-3 mt-4">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2 class="card-title mb-4" style="flex: 1; text-align: center;">Dashboard Overview</h2>
+        <a href="@Url.Action("ExportOverallReport", "Admin")" style="margin-left: 20px; text-decoration: none; font-weight: bold; color: #0dcaf0;">
+            Export Overall Report
+            <span class="material-icons" style="vertical-align: middle; margin-left: 5px; color: #0dcaf0;">arrow_forward</span>
+        </a>
+    </div>
 
-            <div class="card text-black mb-3">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Total Clearance Requests</h6>
-                    <p class="card-text total-value" id="totalClearanceRequests">0</p> 
-                </div>
-            </div>
-            <div class="card text-black mb-3">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Total Certificate Requests</h6>
-                    <p class="card-text total-value" id="totalCertificateRequests">0</p> 
-                </div>
-            </div>
+            @*<pre>@Html.Raw(Json.Serialize(ViewBag.Data))</pre>*@
+        <input type="hidden" id="clearances" value="@ViewBag.Data.Clearances" />
+        <input type="hidden" id="certificates" value="@ViewBag.Data.Certificates" />
+        <input type="hidden" id="ids" value="@ViewBag.Data.Ids" />
+        <input type="hidden" id="complains" value="@ViewBag.Data.Complains" />
 
-            <div class="card text-black mb-3">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Total Complaints</h6>
-                    <p class="card-text total-value" id="totalComplaints">0</p> 
-                </div>
-            </div>
-            <div class="card text-black mb-3">
-                <div class="card-body text-center">
-                    <h6 class="card-title">Total ID Requests</h6>
-                    <p class="card-text total-value" id="totalIdRequests">0</p> 
-                </div>
-            </div>
-
-        </div>
-        <div class="card flex-grow-1 mb-3 ms-3 custom-height">
-            <div class="card-body">
-                <h5 class="card-title text-center">Charts Overview</h5>
-                <div class="d-flex justify-content-between">
-                    <div style="position: relative; height: 400px; width: 400px; margin-right: 20px;">
-                        <canvas id="myPieChart" style="height: 100%; width: 100%;"></canvas>
+        <div class="d-flex">
+        <div class="card-container">
+                <div class="card text-black mb-2">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Total Clearance Requests</h6>
+                        <p class="card-text total-value" id="totalClearanceRequests">0</p>
+                        <a href="@Url.Action("ExportClearances", "Admin")" class="btn btn-info">Export Data</a>
                     </div>
-                    <div style="position: relative; height: 400px; width: 600px;">
-                        <canvas id="myBarChart" style="height: 100%; width: 100%;"></canvas>
+                </div>
+                <div class="card text-black mb-2">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Total Certificate Requests</h6>
+                        <p class="card-text total-value" id="totalCertificateRequests">0</p>
+                        <a href="@Url.Action("ExportCertificates", "Admin")" class="btn btn-info">Export Data</a>
+                    </div>
+                </div>
+                <div class="card text-black mb-2">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Total Complaints</h6>
+                        <p class="card-text total-value" id="totalComplaints">0</p>
+                        <a href="@Url.Action("ExportComplaints", "Admin")" class="btn btn-info">Export Data</a>
+                    </div>
+                </div>
+                <div class="card text-black mb-2">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Total ID Requests</h6>
+                        <p class="card-text total-value" id="totalIdRequests">0</p>
+                        <a href="@Url.Action("ExportIds", "Admin")" class="btn btn-info">Export Data</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card flex-grow-1 mb-3 ms-3 custom-height">
+                <div class="card-body">
+                    <h5 class="card-title text-center mb-5">Charts Overview</h5>
+                    <div class="d-flex justify-content-between">
+                        <div style="position: relative; height: 400px; width: 400px; margin-right: 20px;">
+                            <canvas id="myPieChart" style="height: 100%; width: 100%;"></canvas>
+                        </div>
+                        <div style="position: relative; height: 400px; width: 600px;">
+                            <canvas id="myBarChart" style="height: 100%; width: 100%;"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 

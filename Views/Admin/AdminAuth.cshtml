@@ -11,7 +11,7 @@
 
 <div class="container-1 mt-4">
     <div class="container-2">
-        <form asp-action="Login">
+        <form asp-action="AdminAuth">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <h1 class="admin-title">
                 <i class="fa-solid fa-user-shield"></i> 
@@ -34,9 +34,10 @@
                 </div>
             </div>
             <div class="btn-container">
-                <button class="btn" type="submit" value="Login">LOG IN</button>
+                <button class="btn" type="submit" value="AdminAuth">LOG IN</button>
             </div>
         </form>
     </div>
 </div>
 <script src="~/js/Auth.js" defer></script>
+

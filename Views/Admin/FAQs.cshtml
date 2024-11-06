@@ -1,41 +1,118 @@
-﻿@{
+﻿@model G_5_BMS.Models.FAQViewModel
+@{
     ViewData["Title"] = "FAQs";
 }
 <link rel="stylesheet" href="~/css/Admin-faq.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <div class="faq-outer-container">
     <div class="info-card-header">FAQs</div>
 
-    <div class="faq-form-container">
-        <div class="faq-add-item" id="faq-add-item">
-            <a href="#" onclick="addItem()">
-                <img src="~/Images/Admin/add-button.png" alt="add" style="width: 24px; height: 24px;" />
-            </a>
-            <span>Add Item</span>
+
+<div style="text-align: right;">
+    <button class="stoggle-button btn " style="width: auto; height: 40px; margin-bottom: 10px; padding: 5px;  background-color:#9FD2FF;" onclick="stoggleContent()">
+        <i class="fas fa-exchange-alt" style="font-size: 20px; color: black;"></i>
+        <span style="color: black; font-size: 15px; margin-left: 5px;">Toggle</span>
+    </button>
+</div>
+
+
+
+
+    <form id="faqForm" asp-action="Add" method="post">
+                    <div class="faq-form-container">
+                     <div class="faq-add-item" id="faq-add-item">
+    <a href="#" onclick="addItem()" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+        <img src="~/Images/Admin/add-button.png" alt="add" class="faq-icon" />
+        <span>Add Item</span>
+    </a>
+</div>
+                     <div id="faq-list">
+                @foreach (var faq in Model.FAQs)
+                {
+                    <div class="faq-card">
+                        <a href="#" onclick="removeItem()">
+                            <img src="~/Images/Admin/remove.png" alt="remove" class="faq-icon" />
+                        </a>
+                        <div>
+                            <label for="question_@faq.FId">Question:</label>
+                            <input type="text" id="question_@faq.FId" name="Question" value="@faq.Question" class="faq-input" readonly />
+                        </div>
+                        <div>
+                            <label for="answer_@faq.FId">Answer:</label>
+                            <input type="text" id="answer_@faq.FId" name="Answer" value="@faq.Answer" class="faq-input" readonly />
+                        </div>
+                        <a href="#" onclick="editItem()">
+                            <img src="~/Images/Admin/edit-button.png" alt="edit" class="faq-icon" />
+                        </a>
+                    </div>
+                }
+            </div>
         </div>
-        <div class="faq-card">
-            <a href="#" onclick="removeItem()">
-                <img src="~/Images/Admin/remove.png" alt="remove" style="width: 24px; height: 24px;" />
-            </a>
-            <input type="text" placeholder="What is your question?" class="faq-input">
-            <a href="#" onclick="editItem()">
-                <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
-            </a>
-        </div>
-        <div class="faq-card">
-            <input type="text" placeholder="This is the answer..." readonly class="faq-input readonly">
-        </div>
-        <div class="faq-card">
-            <a href="#" onclick="removeItem()">
-                <img src="~/Images/Admin/remove.png" alt="remove" style="width: 24px; height: 24px;" />
-            </a>
-            <input type="text" placeholder="What is another question?" class="faq-input">
-            <a href="#" onclick="editItem()">
-                <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
-            </a>
-        </div>
-        <div class="faq-card">
-            <input type="text" placeholder="This is another answer..." readonly class="faq-input readonly">
-        </div>
+    </form>
+
+
+
+    <!-- Feedback Table Section -->
+    <div id="feedbackTable" class="feedback-table-container mt-4" style="display: none;">
+        <h3>Feedback List</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th> <!-- Header for Feedback ID -->
+                    <th>Name</th> <!-- Header for Name -->
+                    <th>Email</th> <!-- Header for Email -->
+                    <th>Rating</th> <!-- Header for Rating -->
+                    <th>Feedback</th> <!-- Header for Feedback Description -->
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add tbody to contain the data rows -->
+                @foreach (var Feedback in Model.Feedbacks) // Loop through each feedback entry
+                {
+                    <tr>
+                        <td>@Feedback.FeedbackId</td> <!-- Assuming FeedbackId is a property in your Feedback model -->
+                        <td>@Feedback.Name</td>
+                        <td>@Feedback.Email</td>
+                        <td>@Feedback.Rating</td>
+                        <td>@Feedback.Description</td>
+                       <td style="display: flex; align-items: center; justify-content: space-around;">
+                        <a href="mailto:@Feedback.Email" style="display: flex; align-items: center; text-decoration: none;">
+                            <img src="~/Images/Admin/up.png" alt="Email" style="width: 24px; height: 24px; margin-right: 5px;" />
+                        </a>
+                        <a href="#" onclick="addItem()" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                            <img src="~/Images/Admin/add-button.png" alt="add" class="faq-icon" style="margin-right: 5px;" />
+                            <span>Add Faq</span>
+                        </a>
+                    </td>
+                    </tr>
+                }
+        </table>
     </div>
 </div>
-<script src="~/js/Admin-faq.js"></script>
+<!-- Modal for Adding FAQ -->
+<div id="faqModal" class="modal faq-form-container">
+    <div class="modal-content faq-form-container">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 class="faq-form-header">Add New FAQ</h2>
+        <form id="faqForm" asp-action="Add" method="post">
+            <div>
+                <label for="question" class="faq-label">Question:</label>
+                <input type="text" id="question" name="Question" placeholder="What is your question?" class="faq-input" required />
+            </div>
+            <div style="margin-top: 8px;">
+                <label for="answer" class="faq-label">Answer:</label>
+                <input type="text" id="answer" name="Answer" placeholder="What is the answer?" class="faq-input" required />
+            </div>
+            <button type="submit" class="faq-submit-button">Add FAQ</button>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Include a script to handle modal visibility -->
+
+
+<script src="~/js/Admin-faq.js" asp-append-version="true"></script>
+

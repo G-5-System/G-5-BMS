@@ -2,42 +2,95 @@
     ViewData["Title"] = "Announcement";
 }
 <link rel="stylesheet" href="~/css/admin-anno.css" asp-append-version="true" />
+
 <div class="anno-container">
     <div class="announcement-container">
         <h1>Announcement</h1>
     </div>
-    <h2> <i class="fa-solid fa-plus"></i>   Announcement</h2>
+
+    <h2 onclick="openModal()" style="cursor: pointer;">
+        <i class="fa-solid fa-plus"></i> Announcement
+    </h2>
+
     <div class="content">
         <p class="date-time">28 September 2024 10:44PM</p>
         <h3>PABATID!</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut viverra ligula. Ut consectetur convallis pretium. Integer ullamcorper risus scelerisque magna varius, at commodo mi accumsan. Vestibulum et vestibulum mi, eget hendrerit nisl. Nunc leo ex, hendrerit eget elementum vitae, scelerisque ut urna. Integer nec lacus magna. Nulla facilisi.
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <div>
+            <a href="#" onclick="editAnnouncement()">
+                <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
+            </a>
+            <a href="#" onclick="deleteAnnouncement()">
+                <i class="fa-regular fa-trash-can"></i>
+            </a>
+        </div>
     </div>
 
-    <div>
-        <a href="#" onclick="editAnnouncement()">
-            <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
-        </a>
-        <a href="#" onclick="deleteAnnouncement()">
-            <i class="fa-regular fa-trash-can"></i>
-        </a>
+    <div id="addano" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Announcement</h2>
+            <form id="announcementForm">
+                <div>
+                    <label for="announcementTitle">Title:</label>
+                    <input type="text" id="announcementTitle" required>
+                </div>
+                <div>
+                    <label for="announcementBody">Body:</label>
+                    <textarea id="announcementBody" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Add Announcement</button>
+            </form>
+        </div>
     </div>
+</div>
+
+<script src="~/js/Admin-Anno.js" asp-append-version="true"></script>
+@{
+    ViewData["Title"] = "Announcement";
+}
+<link rel="stylesheet" href="~/css/admin-anno.css" asp-append-version="true" />
+
+<div class="anno-container">
+    <div class="announcement-container">
+        <h1>Announcement</h1>
+    </div>
+
+    <h2 onclick="openModal()" style="cursor: pointer;">
+        <i class="fa-solid fa-plus"></i> Announcement
+    </h2>
 
     <div class="content">
         <p class="date-time">28 September 2024 10:44PM</p>
-        <h3>HEP! HEP!</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut viverra ligula. Ut consectetur convallis pretium. Integer ullamcorper risus scelerisque magna varius, at commodo mi accumsan. Vestibulum et vestibulum mi, eget hendrerit nisl. Nunc leo ex, hendrerit eget elementum vitae, scelerisque ut urna. Integer nec lacus magna. Nulla facilisi.
-        </p>
+        <h3>PABATID!</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <div>
+            <a href="#" onclick="editAnnouncement()">
+                <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
+            </a>
+            <a href="#" onclick="deleteAnnouncement()">
+                <i class="fa-regular fa-trash-can"></i>
+            </a>
+        </div>
     </div>
 
-    <div>
-        <a href="#" onclick="editAnnouncement()">
-            <img src="~/Images/Admin/edit-button.png" alt="edit" style="width: 24px; height: 24px;" />
-        </a>
-        <a href="#" onclick="deleteAnnouncement()">
-            <i class="fa-regular fa-trash-can"></i>
-        </a>
+    <div id="addano" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Announcement</h2>
+            <form id="announcementForm">
+                <div>
+                    <label for="announcementTitle">Title:</label>
+                    <input type="text" id="announcementTitle" required>
+                </div>
+                <div>
+                    <label for="announcementBody">Body:</label>
+                    <textarea id="announcementBody" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Add Announcement</button>
+            </form>
+        </div>
     </div>
 </div>
+
+<script src="~/js/Admin-Anno.js" asp-append-version="true"></script>

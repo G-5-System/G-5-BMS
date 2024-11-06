@@ -60,16 +60,17 @@ namespace G_5_BMS.Controllers
             return View(cards);
         }
 
-        public ActionResult Announcement()
+         public async Task<IActionResult> Announcement()
         {
-            var announcements = new List<Announcement>
+            ViewBag.Name = HttpContext.User.Identity.Name;
+            var homeContents = await _context.Announcements.ToListAsync();
+
+            var viewModel = new Announcement
             {
-                new Announcement { Title = "Annual Company Meeting", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", EventDate = new DateTime(2024, 10, 14), EventTime = "3:00 PM - 6:00 PM", Location = "Main Conference Room", RsvpEmail = "rsvp@example.com" },
-                new Announcement { Title = "Team Building Event", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", EventDate = new DateTime(2024, 11, 5), EventTime = "10:00 AM - 2:00 PM", Location = "Outdoor Park", RsvpEmail = "team@example.com" },
-                new Announcement { Title = "Holiday Party", Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", EventDate = new DateTime(2024, 12, 20), EventTime = "6:00 PM - 10:00 PM", Location = "Rooftop Lounge", RsvpEmail = "holidayparty@example.com" },
+                Announcements = homeContents // Populate the list
             };
 
-            return View(announcements);
+            return View(viewModel);
         }
 
         [HttpGet]
@@ -290,9 +291,34 @@ namespace G_5_BMS.Controllers
             return Json(new { success = false, errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
         }
 
-        public IActionResult Feedback()
+        public async Task<IActionResult> Feedback()
         {
-            return View();
+            var faqsModel = new FAQViewModel
+            {
+                FAQs = await _context.Faqs.ToListAsync()
+            };
+
+            return View(faqsModel); // Pass the model to the view
+        }
+        [HttpPost]
+        public IActionResult SubmitFeedback(Feedback feedback)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Feedbacks.Add(feedback); // Assuming you have a Feedbacks DbSet in your AppDbContext
+                    _context.SaveChanges();
+
+                    ViewBag.Message = "Feedback submitted successfully!";
+                    return RedirectToAction("Feedback"); // Redirect to a confirmation page or the same page
+                }
+                catch (DbUpdateException)
+                {
+                    ModelState.AddModelError("", "Error saving feedback. Please try again.");
+                }
+            }
+            return View(feedback); // Return with validation errors if any
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

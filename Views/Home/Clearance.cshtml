@@ -17,6 +17,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.FirstName)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", type = "text" })
                         @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
                     </div>
@@ -27,6 +28,7 @@
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.LastName)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", type = "text" })
                         @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
                     </div>
@@ -34,11 +36,13 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Suffix)
+                        <span class="text-danger">*</span>
                         @Html.DropDownListFor(m => m.Suffix, new SelectList(new List<string> { "N/A", "Jr.", "Sr.", "I", "II" }), "Select Suffix", new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Suffix, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.Gender)
+                        <span class="text-danger">*</span>
                         @Html.DropDownListFor(m => m.Gender, new SelectList(new List<string> { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
                     </div>
@@ -53,6 +57,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Address)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.Address, new { @class = "form-control", type = "text" })
                         @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
                     </div>
@@ -60,11 +65,13 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.ContactNumber)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", type = "tel" })
                         @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.EmailAddress)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
                         @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "text-danger" })
                     </div>
@@ -79,11 +86,13 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.BusinessName)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.BusinessName, new { @class = "form-control", type = "text" })
                         @Html.ValidationMessageFor(m => m.BusinessName, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.BusinessNature)
+                        <span class="text-danger">*</span>
                         @Html.DropDownListFor(m => m.BusinessNature, new SelectList(new List<string> { "Public", "Private", "Corporation" }), "Select Business Nature", new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.BusinessNature, "", new { @class = "text-danger" })
                     </div>
@@ -91,6 +100,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Ownership)
+                        <span class="text-danger">*</span>
                         @Html.DropDownListFor(m => m.Ownership, new SelectList(new List<string> { "Franchise", "Company Owner", "Non-Profit" }), "Select Ownership", new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Ownership, "", new { @class = "text-danger" })
                     </div>

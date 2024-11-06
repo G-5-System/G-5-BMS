@@ -11,6 +11,42 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+/* Make the container responsive */
+@media (max-width: 1200px) {
+    .container {
+        padding: 15px; /* Reduce padding for medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 10px; /* Further reduce padding for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Maintain padding on mobile */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Adjust heading size for mobile */
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 5px; /* Minimal padding for extra small screens */
+    }
+
+    h2 {
+        font-size: 1.25rem; /* Smaller heading size for very small screens */
+    }
+
+    .total-value {
+        font-size: 1.5rem; /* Smaller font size for total value on extra small screens */
+    }
+}
 
 h2 {
     text-align: center;
@@ -27,7 +63,7 @@ h2 {
 
 @media (max-width: 768px) {
     .chart-container {
-        width: 100%;
+        width: 70%;
         margin-bottom: 20px;
     }
 
@@ -54,6 +90,20 @@ h2 {
         color: #343a40;
         font-weight: bold;
     }
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 500px;
+}
+.total-value {
+    font-weight: bold !important; 
+    font-size: 3rem !important; 
+    color: #343a40 !important; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 
 .table {
     width: 100%;

@@ -28,6 +28,9 @@
     position: relative;
 }
 
+.announcementLocation {
+    margin-top: 15px;
+}
 .date-time {
     float: right;
     right: 10px;
@@ -41,3 +44,96 @@
     font-size: 30px;
     margin-bottom: 50px;
 }
+/* Modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Dark background with opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #D0EFFF; /* White background for the modal */
+    margin:5% auto; /* Center the modal */
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    width: 80%; /* Responsive width */
+    max-width: 600px; /* Maximum width */
+    overflow-y: scroll; /* Allow vertical scrolling */
+}
+    .modal-content::-webkit-scrollbar {
+        width: 0; /* Remove scrollbar space */
+        background: transparent; /* Optional: make background transparent */
+    }
+/* Close button */
+.close {
+    color: gray; /* Tomato color for close button */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+    .close:hover {
+        color: #d32f2f; /* Darker red on hover */
+    }
+
+/* Modal header */
+.modal-content h2 {
+    text-align: center; /* Center the title */
+    font-size: 1.8em; /* Increase font size */
+    margin-bottom: 20px; /* Space below the title */
+    color: #333; /* Dark text color */
+}
+
+/* Labels */
+.modal-content label {
+    display: block; /* Block for better layout */
+    margin-bottom: 8px; /* Space below labels */
+    font-weight: bold; /* Bold labels */
+    color: #555; /* Slightly dark gray */
+}
+
+/* Inputs and text areas */
+.modal-content input[type="text"],
+.modal-content textarea {
+    width: 100%; /* Full width inputs */
+    padding: 10px; /* Padding inside */
+    margin-bottom: 15px; /* Space below inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded edges */
+    font-size: 16px; /* Increase font size */
+}
+
+    /* Focus state for inputs */
+    .modal-content input[type="text"]:focus,
+    .modal-content textarea:focus {
+        border-color: #007bff; /* Change border color on focus */
+        outline: none; /* Remove outline */
+    }
+
+/* Submit button */
+/* Submit button */
+.modal-content .submit-button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #ffffff; /* White text */
+    border: none; /* No border */
+    padding: 10px; /* Padding */
+    border-radius: 5px; /* Rounded edges */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    width: 100%; /* Full width */
+    margin-top:10px;
+}
+
+    /* Hover state for submit button */
+    .modal-content .submit-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }

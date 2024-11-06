@@ -1,41 +1,38 @@
-﻿@{
+﻿@model G_5_BMS.Models.Announcement
+@{
     ViewData["Title"] = "Announcements";
     ViewData["ShowSecondNavbar"] = true; 
 }
 
-@model List<G_5_BMS.Models.Announcement>
+
 
 <link rel="stylesheet" href="~/css/Announcement.css" asp-append-version="true" />
 
 <div class="container">
     <div class="announcement-card">
         <div class="announcement-list">
-            @for (int i = 0; i < Model.Count; i++)
+            @foreach (var HomeContents in Model.Announcements) // Loop through each announcement
             {
-               <div class="individual-announcement" style="display: @(i < 3 ? "block" : "none")">
+               <div class="individual-announcement">
                     <div class="announcement-item-card">
                         <div class="announcement-header">
                             <div class="announcement-title">
-                                <h4>@Model[i].Title</h4>
-                                <p>@Model[i].Description</p>
+                                <h4>>@HomeContents.Title</h4>
+                                <p>@HomeContents.Body</p>
                             </div>
                             <div class="announcement-date-time">
-                                <p><strong>Date:</strong> @Model[i].EventDate.ToShortDateString()</p>
-                                <p><strong>Time:</strong> @Model[i].EventTime</p>
+                                <p class="date-time">@HomeContents.DateTime.ToString("dd MMMM yyyy hh:mm tt")</p>
+                                
                             </div>
                         </div>
                         <div class="announcement-location">
-                            <p><strong>Location:</strong> @Model[i].Location</p>
-                            <p><strong>RSVP:</strong> @Model[i].RsvpEmail</p>
+                            <p><strong>Location:</strong></p>
+                            <p>@HomeContents.Location</p>
                         </div>
                     </div>
                 </div>
             }
-        </div>
-        @if (Model.Count > 3)
-        {
-            <button id="showMoreBtn" onclick="showMore()">Show More</button>
-        }
+       
     </div>
 </div>
 

@@ -6,7 +6,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 100vh; 
+    max-width: 100vh;
     margin: 20px auto;
 }
 
@@ -19,7 +19,7 @@
 }
 
 label {
-    font-size:20px;
+    font-size: 20px;
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
@@ -47,17 +47,17 @@ textarea {
     .star-rating label {
         font-size: 20px;
         cursor: pointer;
-        color: #ccc; 
+        color: #ccc;
     }
 
     .star-rating input:checked ~ label {
-        color: #f39c12; 
+        color: #f39c12;
     }
 
 .button-group {
     display: flex;
-    justify-content: flex-end; 
-    gap: 10px; 
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 .btn-send,
@@ -69,20 +69,61 @@ textarea {
 }
 
 .btn-send {
-    width:100px;
-    background-color: #03254C; 
+    width: 100px;
+    background-color: #03254C;
     color: white;
 }
 
     .btn-send:hover {
-        background-color: #0056b3; 
+        background-color: #0056b3;
     }
 
 .btn-cancel {
-    background-color: #ccc; 
+    background-color: #ccc;
     color: black;
 }
 
     .btn-cancel:hover {
-        background-color: #bbb; 
+        background-color: #bbb;
     }
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.faq-list {
+    margin-top: 15px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+    .faq-question:hover {
+        background-color: #f1f1f1;
+    }
+
+.faq-toggle {
+    margin-right: 10px;
+    font-size: 20px;
+    font-weight: normal;
+    transition: transform 0.3s;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+    padding-left: 30px;
+    color: #555;
+}

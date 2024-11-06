@@ -18,11 +18,13 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.FullName)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", type = "text" })
                         @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.ContactNumber)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", type = "tel" })
                         @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
                     </div>
@@ -30,11 +32,13 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.LabelFor(m => m.Address)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.Address, new { @class = "form-control", type = "text" })
                         @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
                         @Html.LabelFor(m => m.EmailAddress)
+                        <span class="text-danger">*</span>
                         @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control", type = "email" })
                         @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "text-danger" })
                     </div>
@@ -48,11 +52,13 @@
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col">
-                        @Html.Label("Accused Full Name") 
+                        @Html.Label("Accused Full Name")
+                        <span class="text-danger">*</span>
                         @Html.TextBox("AccusedFullName", null, new { @class = "form-control", type = "text" })
                     </div>
                     <div class="col">
-                        @Html.Label("Accused Address") 
+                        @Html.Label("Accused Address")
+                        <span class="text-danger">*</span>
                         @Html.TextBox("AccusedAddress", null, new { @class = "form-control", type = "text" })
                     </div>
                 </div>
@@ -67,6 +73,7 @@
                 <div class="row mb-3">
                     <div class="col">
                         @Html.Label("Description")
+                        <span class="text-danger">*</span>
                         @Html.TextAreaFor(m => m.Description, new { @class = "form-control", rows = "5", style = "resize: none;" })
                         @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
                     </div>
